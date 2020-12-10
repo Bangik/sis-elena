@@ -17,6 +17,9 @@
               <img src="./asset/img/matematika-logo.jpg" class="card-img-top mx-auto d-block" alt="..." style="width:70%">
               <div class="card-body">
                 <h5 class="card-title"><?php echo $dataMapel['nama_mapel'] ?></h5>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+                </div>
               </div>
             </a>
           </div>
