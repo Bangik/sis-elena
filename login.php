@@ -29,6 +29,12 @@
         }else {
           $error = 'data ada yang salah';
         }
+      }elseif (cek_nama_admin($nama) != 0) {
+        if(cek_data_admin($nama, $pass)){
+          redirect_login_admin($nama);
+        }else {
+          $error = 'data ada yang salah';
+        }
       }else{
         $error = 'namanya belum terdaftar di database';
       }
