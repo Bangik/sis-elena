@@ -43,7 +43,7 @@
                     </table>
                   </div>
                   <div class="col text-center">
-                    <a href="#" class="btn btn-success" style="width: 10rem;" >Tambahkan Tugas</a>
+                    <a href="edit-tugas.php" class="btn btn-success" style="width: 10rem;" >Tambahkan Tugas</a>
                   </div>
                 </div>
             </div>
