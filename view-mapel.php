@@ -3,7 +3,7 @@
   $id = $_GET['id'];
   $nis = $rowUser['nis'];
 
-  $tampilMateriQuery = mysqli_query($link, "SELECT materi_mapel.kode_mapel, materi_mapel.judul, materi_mapel.kode_aktivitas, materi_mapel.kode_aktivitas2, materi_mapel.kode_aktivitas3, materi_mapel.checkbox, presensi2.nama_presensi, tugas2.nama_tugas FROM materi_mapel LEFT JOIN presensi2 ON materi_mapel.kode_aktivitas=presensi2.kode_aktivitas LEFT JOIN tugas2 ON materi_mapel.kode_aktivitas2=tugas2.kode_aktivitas2 where materi_mapel.kode_mapel='$id'" );
+  $tampilMateriQuery = mysqli_query($link, "SELECT materi_mapel.id, materi_mapel.kode_mapel, materi_mapel.judul, materi_mapel.kode_aktivitas, materi_mapel.kode_aktivitas2, materi_mapel.kode_aktivitas3, materi_mapel.checkbox, presensi2.nama_presensi, tugas2.nama_tugas FROM materi_mapel LEFT JOIN presensi2 ON materi_mapel.kode_aktivitas=presensi2.kode_aktivitas LEFT JOIN tugas2 ON materi_mapel.kode_aktivitas2=tugas2.kode_aktivitas2 where materi_mapel.kode_mapel='$id'" );
 ?>
     <!-- main start-->
     <div class="container">
@@ -15,12 +15,22 @@
           <div class="card">
             <div class="card-body">
                 <a href="#" class="text-color-a"><h5 class="card-title custom-control-inline"><?php echo $tampilMateri['judul']; ?></h5></a>
+                <form action="completes.php" method="post" class="custom-control-inline float-right">
+                  <button type="submit" name="btnchek" class="btn btn-link">
+                    <input type="hidden" name="idform" value="<?php $idnya = $tampilMateri['id']; echo $idnya;?>">
+                    <input type="hidden" name="statusform" value="<?php echo $tampilMateri['checkbox'];?>">
+                    <input type="hidden" name="kode_mapel_form" value="<?php echo $tampilMateri['kode_mapel'];?>">
+                    <img src="./asset/img/<?php echo $tampilMateri['checkbox']; ?>.svg">
+                  </button>
+                </form>
                 <a href="view-presensi.php?id=<?php echo $tampilMateri['kode_aktivitas']; ?>" class="card-text text-color-a"><p><?php echo $tampilMateri['nama_presensi']; ?></p></a>
                 <a href="view-assign.php?id=<?php echo $tampilMateri['kode_aktivitas2']; ?>" class="card-text text-color-a"><p><?php echo $tampilMateri['nama_tugas']; ?></p></a>
             </div>
           </div>
         </div>
-      <?php endwhile; ?>
+      <?php
+        endwhile;
+      ?>
       </div>
     </div>
     <!-- main end-->

@@ -21,7 +21,7 @@
       $hasil_query_tampil_presensi = mysqli_fetch_array($query_tampil_presensi);
       $kode_aktivitas1 = $hasil_query_tampil_presensi['kode_aktivitas'];
 
-      $query_insert_materi_mapel = mysqli_query($link, "INSERT INTO materi_mapel(kode_mapel, judul, kode_aktivitas, kode_aktivitas2, kode_aktivitas3, kode_kelas) VALUES ('$kode_mapel', '$judul', '$kode_aktivitas1', NULL, NULL, '$_POST[kelas]') ");
+      $query_insert_materi_mapel = mysqli_query($link, "INSERT INTO materi_mapel(kode_mapel, judul, kode_aktivitas, kode_aktivitas2, kode_aktivitas3, kode_kelas, checkbox) VALUES ('$kode_mapel', '$judul', '$kode_aktivitas1', NULL, NULL, '$_POST[kelas]', 'completion-manual-n') ");
 
       $query_ambil_siswa = mysqli_query($link, "SELECT nis FROM siswa WHERE kode_kelas='$_POST[kelas]'");
 
