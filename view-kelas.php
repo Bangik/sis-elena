@@ -24,12 +24,14 @@
                   <button type="submit" name="btnhapus" class="btn btn-link" title="Hapus" onclick="return confirm('Apakah Anda Ingin Menghapus Data ini ?')">
                     <input type="hidden" name="idform" value="<?php echo  $tampilMateri['id'];?>">
                     <input type="hidden" name="idkelasform" value="<?php echo  $id;?>">
+                    <input type="hidden" name="idaktiv1" value="<?php echo $tampilMateri['kode_aktivitas'];?>">
+                    <input type="hidden" name="idaktiv2" value="<?php echo $tampilMateri['kode_aktivitas2'];?>">
                     <i class="fa fa-close text-danger"></i>
                   </button>
                 </form>
                 <a href="#" class="text-color-a"><h5 class="card-title"><?php echo $tampilMateri['judul']; ?></h5></a>
                 <a href="view-presensi-guru.php?id=<?php echo $tampilMateri['kode_aktivitas'];?>&idm=<?php echo $id; ?>" class="card-text text-color-a"><p><?php echo $tampilMateri['nama_presensi']; ?></p></a>
-                <a href="" class="card-text text-color-a"><p><?php echo $tampilMateri['nama_tugas']; ?></p></a>
+                <a href="view-tugas-guru.php?id=<?php echo $tampilMateri['kode_aktivitas2'];?>&idm=<?php echo $id; ?>" class="card-text text-color-a"><p><?php echo $tampilMateri['nama_tugas']; ?></p></a>
               </div>
           </div>
         </div>
@@ -38,7 +40,7 @@
           <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Tambah Aktivitas Baru</h5>
-                <a href="tambah-aktivitas.php" class="btn btn-primary">Tambah</a>
+                <a href="tambah-aktivitas.php?id=<?php echo $id; ?>" class="btn btn-primary">Tambah</a>
               </div>
           </div>
         </div>
