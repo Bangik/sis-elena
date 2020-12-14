@@ -1,6 +1,8 @@
 <?php
   include 'templates/header.php';
-  $kode_aktivitas = $_GET['idm'];
+  if (isset($_GET['idm'])) {
+    $kode_aktivitas = $_GET['idm'];
+  }  
   $kode_siswa = $rowUser['nis'];
 
   $date_now = date("Y-m-d");
