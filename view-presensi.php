@@ -45,7 +45,7 @@
                           <td><?php echo $tampilkan_presensi['status']; ?></td>
                           <td>
                             <?php if (date('H:i', strtotime($tampilkan_presensi2['jam_akhir'])) <= date('H:i') && date('D, d M y', strtotime($tampilkan_presensi2['tanggal_akhir'])) >= date('D, d M y')){
-                              echo "<p>Presensi2<p>";
+                              echo "<p>Presensi<p>";
                             }elseif ($tampilkan_presensi['catatan'] == 1) {
                               echo "<p>Presensi<p>";
                             }else{?>
