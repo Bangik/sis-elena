@@ -1,5 +1,27 @@
 <?php
   include 'templates/header.php';
+  $kode_tugas = $_GET['id'];
+  $kode_siswaview = $rowUser['nis'];
+  $materi_mapel_query = mysqli_query($link, "SELECT kode_mapel, judul, kode_aktivitas, kode_aktivitas2 FROM materi_mapel WHERE kode_aktivitas2='$kode_tugas'");
+  $tampil_materi_query = mysqli_fetch_array($materi_mapel_query);
+
+  $tampil_tugas2 = mysqli_query($link, "SELECT * FROM tugas2 where kode_aktivitas2 = '$kode_tugas'");
+  $tampilkan_tugas2 = mysqli_fetch_array($tampil_tugas2);
+
+  $tampil_tugas = mysqli_query($link, "SELECT * FROM tugas where kode_aktivitas_tugas = '$kode_tugas' AND nis='$kode_siswaview'");
+  $tampilkan_tugas = mysqli_fetch_array($tampil_tugas);
+
+  $tgl = date('d', strtotime($tampilkan_tugas2['tanggal_akhir']));
+  $bulan = date('m', strtotime($tampilkan_tugas2['tanggal_akhir']));
+  $tahun = date('Y', strtotime($tampilkan_tugas2['tanggal_akhir']));
+  $jam = date('H', strtotime($tampilkan_tugas2['jam_akhir']));
+  $menit = date('i', strtotime($tampilkan_tugas2['jam_akhir']));
+  $detik = date('s', strtotime($tampilkan_tugas2['jam_akhir']));
+  $date_now = time();
+  $deadline = mktime($jam,$menit,$detik,$bulan,$tgl,$tahun);
+  $rentang = ($deadline-$date_now);
+  $sisa_hari = floor($rentang / (60 * 60 * 24));
+  $sisa_jam = floor(($rentang - ($sisa_hari*60*60*24)) / (60*60));
 ?>
 
     <!-- main start-->
@@ -9,8 +31,8 @@
           <div class="card-deck">
             <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">Bab 1 Aljabar</h5>
-                  <p class="card-text">Lorem Ipsum adalah contoh teks atau dummy dalam industri percetakan dan penataan huruf atau typesetting. Lorem Ipsum telah menjadi standar contoh teks sejak tahun 1500an, saat seorang tukang cetak yang tidak dikenal mengambil sebuah kumpulan teks dan mengacaknya untuk menjadi sebuah buku contoh huruf. Ia tidak hanya bertahan selama 5 abad, tapi juga telah beralih ke penataan huruf elektronik, tanpa ada perubahan apapun. Ia mulai dipopulerkan pada tahun 1960 dengan diluncurkannya lembaran-lembaran Letraset yang menggunakan kalimat-kalimat dari Lorem Ipsum, dan seiring munculnya perangkat lunak Desktop Publishing seperti Aldus PageMaker juga memiliki versi Lorem Ipsum.</p>
+                  <h5 class="card-title"><?php echo $tampil_materi_query['judul']; ?></h5>
+                  <p class="card-text"><?php echo $tampilkan_tugas2['deskripsi']; ?></p>
                 </div>
             </div>
           </div>
@@ -25,26 +47,47 @@
                       <tbody>
                         <tr>
                           <td>Status Pengumpulan</td>
-                          <td>Selesai</td>
+                          <td><?php echo $tampilkan_tugas['status']; ?></td>
                         </tr>
                         <tr>
                           <td>Deadline</td>
-                          <td>3 Januari 2021</td>
+                          <td><?php echo date('l, d-M-Y', strtotime($tampilkan_tugas2['tanggal_akhir'])) . date(' H:i', strtotime($tampilkan_tugas2['jam_akhir'])); ?></td>
                         </tr>
                         <tr>
                           <td>Sisa Waktu</td>
-                          <td>Selesai</td>
+                          <td>
+                            <?php
+                              if ($deadline < $date_now) {
+                                echo "Selesai";
+                              }else {
+                                echo $sisa_hari . " Hari " . $sisa_jam . " Jam";
+                              }
+                            ?>
+                          </td>
                         </tr>
                         <tr>
                           <td>File Tugas</td>
-                          <td>Tugas.pdf</td>
+                          <td> <a href="download.php?file=<?php echo $tampilkan_tugas['file']; ?>"><?php echo $tampilkan_tugas['file']; ?></a> </td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
+
+                  <?php
+                  if ($deadline < $date_now){
+                  ?>
                   <div class="col text-center">
-                    <a href="edit-tugas.php" class="btn btn-success" style="width: 10rem;" >Tambahkan Tugas</a>
+                    <p class="btn btn-success disabled" style="width: 10rem;" >Tambahkan Tugas</p>
                   </div>
+                  <?php
+                  }else{
+                  ?>
+                  <div class="col text-center">
+                    <a href="edit-tugas.php?id=<?php echo $kode_tugas; ?>" class="btn btn-success" style="width: 10rem;" >Tambahkan Tugas</a>
+                  </div>
+                  <?php
+                    }
+                  ?>
                 </div>
             </div>
           </div>
