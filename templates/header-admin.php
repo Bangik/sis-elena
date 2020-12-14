@@ -40,7 +40,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.js" integrity="sha512-9WciDs0XP20sojTJ9E7mChDXy6pcO0qHpwbEJID1YVavz2H6QBz5eLoDD8lseZOb2yGT8xDNIV7HIe1ZbuiDWg==" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/basic.min.css" integrity="sha512-MeagJSJBgWB9n+Sggsr/vKMRFJWs+OUphiDV7TJiYu+TNQD9RtVJaPDYP8hA/PAjwRnkdvU+NsTncYTKlltgiw==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/dropzone.min.css" integrity="sha512-3g+prZHHfmnvE1HBLwUnVuunaPOob7dpksI7/v6UnF/rnKGwHf/GdEq9K7iEN7qTtW+S0iivTcGpeTBqqB04wA==" crossorigin="anonymous" />
-    
+
     <title>SIS ELENA</title>
   </head>
   <body>
@@ -54,10 +54,10 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link fa fa-dashboard text-white" href="dasboard-guru.php">Dasboard <span class="sr-only">(current)</span></a>
+              <a class="nav-link fa fa-dashboard text-white" href="admin_sis_elena.php">Dasboard <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fa fa-mortar-board text-white" href="akademik-guru.php">Akademik</a>
+              <a class="nav-link fa fa-mortar-board text-white" href="akademik-admin.php">Akademik</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link fa fa-user-circle-o text-white dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
