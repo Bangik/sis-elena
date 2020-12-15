@@ -3,6 +3,7 @@
   if (isset($_GET['id'])) {
     $id_kelas = $_GET['id'];
   }
+  $err = "";
   $kode_guru = $rowUser['nip'];
   if (isset($_POST['btnsimpan'])) {
     //ambil value kode mapel
@@ -26,12 +27,23 @@
     $tanggal_akhir_tugas = date("Y-m-d", strtotime($_POST['tanggal_akhir_tugas']));
     $jam_akhir_tugas = date("H:i", strtotime($_POST['jam_akhir_tugas']));
     $deskripsi_tugas = $_POST['deskripsi_tugas'];
+    $nama_file = $_FILES['file_tugas']['name'];
+    $size = $_FILES['file_tugas']['size'];
+    $tempp = $_FILES['file_tugas']['tmp_name'];
+
+
+    //uploaded file
+    if ($size <= 160000000) {
+      move_uploaded_file($tempp, 'upload/'.$nama_file);
+    }else {
+      $err = "Gagal Upload, Ukuran File Terlalu Besar. Maks 20 MB";
+    }
 
     //insert ke tabel presensi2
     $query_simpan_presensi = mysqli_query($link, "INSERT INTO presensi2(nama_presensi, kode_mapel, tanggal_mulai, jam_mulai, tanggal_akhir, jam_akhir, deskripsi) VALUES ('$nama_presensi', '$kode_mapel', '$tanggal_mulai_presensi', '$jam_mulai_presensi', '$tanggal_akhir_prsensi', '$jam_akhir_prsensi', '$deskripsi_presensi')");
 
     //insert ke tabel tugas2
-    $query_simpan_tugas = mysqli_query($link, "INSERT INTO tugas2(nama_tugas, kode_mapel, tanggal_mulai, jam_mulai, tanggal_akhir, jam_akhir, deskripsi) VALUES ('$nama_tugas', '$kode_mapel', '$tanggal_mulai_tugas', '$jam_mulai_tugas', '$tanggal_akhir_tugas', '$jam_akhir_tugas', '$deskripsi_tugas')");
+    $query_simpan_tugas = mysqli_query($link, "INSERT INTO tugas2(nama_tugas, kode_mapel, tanggal_mulai, jam_mulai, tanggal_akhir, jam_akhir, deskripsi, nama_file, file) VALUES ('$nama_tugas', '$kode_mapel', '$tanggal_mulai_tugas', '$jam_mulai_tugas', '$tanggal_akhir_tugas', '$jam_akhir_tugas', '$deskripsi_tugas', '$nama_file', '$tempp')");
 
     if ($query_simpan_presensi && $query_simpan_tugas) {
       //ambil kode aktivitas presensi yang udah di insert di presensi2
@@ -39,7 +51,7 @@
       $hasil_query_tampil_presensi = mysqli_fetch_array($query_tampil_presensi);
       $kode_aktivitas1 = $hasil_query_tampil_presensi['kode_aktivitas'];
 
-      //ambil kode aktivitas presensi yang udah di insert di tugas2
+      //ambil kode aktivitas tugas yang udah di insert di tugas2
       $query_tampil_tugas = mysqli_query($link, "SELECT kode_aktivitas2 FROM tugas2 WHERE nama_tugas='$nama_tugas'AND kode_mapel='$kode_mapel'AND tanggal_mulai='$tanggal_mulai_tugas' AND jam_mulai='$jam_mulai_tugas' AND tanggal_akhir='$tanggal_akhir_tugas' AND jam_akhir='$jam_akhir_tugas' AND deskripsi='$deskripsi_tugas' ");
       $hasil_query_tampil_tugas = mysqli_fetch_array($query_tampil_tugas);
       $kode_aktivitas2 = $hasil_query_tampil_tugas['kode_aktivitas2'];
@@ -53,6 +65,7 @@
       //insert siswa ke tabel presensi
       while ($nis = mysqli_fetch_array($query_ambil_siswa)) {
         $query_insert_siswa = mysqli_query($link, "INSERT INTO presensi (kode_aktivitas, kode_mapel, nis) VALUES ('$kode_aktivitas1', '$kode_mapel', '$nis[nis]' )");
+
         $query_insert_siswa2 = mysqli_query($link, "INSERT INTO tugas (kode_aktivitas_tugas, kode_mapel, nis) VALUES ('$kode_aktivitas2', '$kode_mapel', '$nis[nis]' )");
       }
       echo "<script>
@@ -70,7 +83,7 @@
 ?>
     <!-- main start-->
     <div class="container">
-      <form method="POST" action="tambah-aktivitas.php">
+      <form method="POST" action="tambah-aktivitas.php" enctype="multipart/form-data">
         <div class="form-group">
           <label>Judul</label>
           <input type="text" name="judul" class="form-control" placeholder="Input Judul Aktivitas" required>
@@ -126,6 +139,10 @@
             <div class="form-tugas form-group" style="display:none;">
               <label>Deskripsi</label>
               <textarea name="deskripsi_tugas" class="form-control" rows="3"></textarea>
+            </div>
+            <div class="form-tugas form-group" style="display:none;">
+              <label>Upload File Maks 20 MB <?php echo $err; ?></label>
+              <input type="file" name="file_tugas" class="form-control">
             </div>
           </div>
         </div>
