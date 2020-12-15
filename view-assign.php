@@ -70,6 +70,10 @@
                           <td>File Tugas</td>
                           <td> <a href="download.php?file=<?php echo $tampilkan_tugas['file']; ?>"><?php echo $tampilkan_tugas['file']; ?></a> </td>
                         </tr>
+                        <tr>
+                          <td>Nilai</td>
+                          <td><?php echo  $tampilkan_tugas['nilai']?></td>
+                        </tr>
                       </tbody>
                     </table>
                   </div>
