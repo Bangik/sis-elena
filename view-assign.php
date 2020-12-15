@@ -33,6 +33,7 @@
                 <div class="card-body">
                   <h5 class="card-title"><?php echo $tampil_materi_query['judul']; ?></h5>
                   <p class="card-text"><?php echo $tampilkan_tugas2['deskripsi']; ?></p>
+                  <a href="download.php?file=<?php echo $tampilkan_tugas2['nama_file']; ?>"><?php echo $tampilkan_tugas2['nama_file']; ?></a>
                 </div>
             </div>
           </div>
