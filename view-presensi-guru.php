@@ -23,10 +23,17 @@
   $kodeMapelGuru = mysqli_fetch_array($kodeMapelGuruQuery);
   $kodeMapelGuru2 = $kodeMapelGuru['kode_mapel'];
   $tampil_presensi_query = mysqli_query($link, "SELECT presensi.jam, presensi.tanggal, presensi.status, presensi.catatan, mapel.nama_mapel, siswa.nis, siswa.nama FROM presensi LEFT JOIN mapel ON presensi.kode_mapel = mapel.kode_mapel LEFT JOIN siswa ON presensi.nis=siswa.nis WHERE presensi.kode_mapel='$kodeMapelGuru2' AND presensi.kode_aktivitas='$kode_aktivitas' ORDER BY siswa.nis  ASC ");
+
+  $query_presensi2 = mysqli_query($link, "SELECT nama_presensi FROM presensi2 WHERE kode_aktivitas='$kode_aktivitas'");
+  $nama_presensi = mysqli_fetch_array($query_presensi2);
 ?>
 <!-- main start-->
 <div class="container">
   <div class="row row-cols-1 row-cols-md-1">
+    <div class="col mb-4">
+      <h2 class="text-center h2" style="display:none;">DAFTAR PRESENSI : <?php echo $nama_presensi['nama_presensi']; ?></h2>
+      <button href="#" type="button" class="btn btn-success mr-4 btn-print btn-print2">Print</a>
+    </div>
     <div class="col mb-4">
       <div class="card">
           <div class="card-body">
@@ -39,7 +46,7 @@
                   <th scope="col">Tanggal</th>
                   <th scope="col">Status</th>
                   <th scope="col">Catatan</th>
-                  <th scope="col">Aksi</th>
+                  <th scope="col" class="btn-print2">Aksi</th>
                 </tr>
               </thead>
               <tbody>
@@ -58,7 +65,7 @@
                   }else {
                     echo "?";
                   } ?></td>
-                  <td><a href="#" type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal<?php
+                  <td class="btn-print2"><a href="#" type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal<?php
                   $nis = $tampil_presensi['nis'];
                   echo $nis; ?>">Ubah</button></td>
                 </tr>
@@ -100,6 +107,17 @@
   </div>
 </div>
 <!-- main end-->
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".btn-print").click(function(){
+      $(".btn-print2").hide();
+      $(".h2").show();
+      window.print();
+      $(".btn-print2").show();
+      $(".h2").hide();
+    })
+  });
+</script>
 
 <?php
 include 'templates/footer.php'
