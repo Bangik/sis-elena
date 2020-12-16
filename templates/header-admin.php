@@ -54,10 +54,10 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link fa fa-dashboard text-white" href="admin_sis_elena.php">Dasboard <span class="sr-only">(current)</span></a>
+              <a class="nav-link fa fa-dashboard text-white" href="dashboard-admin.php">Dasboard <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fa fa-mortar-board text-white" href="akademik-admin.php">Akademik</a>
+              <a class="nav-link fa fa-mortar-board text-white" href="under-construction.html">Akademik</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link fa fa-user-circle-o text-white dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
