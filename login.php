@@ -8,6 +8,8 @@
     header('Location: dasboard-siswa.php');
   }elseif (isset($_SESSION['user_guru'])) {
     header('Location: dasboard-guru.php');
+  }elseif (isset($_SESSION['user_admin'])) {
+    header('Location: dasboard-admin.php');
   }
 
   //validasi register

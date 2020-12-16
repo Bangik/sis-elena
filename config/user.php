@@ -88,7 +88,7 @@ function redirect_login_guru($nama){
 
 function redirect_login_admin($nama){
     $_SESSION['user_admin'] = $nama;
-    header('Location: admin_sis_elena.php');
+    header('Location: dashboard-admin.php');
 }
 
 function flash_delete($name){
