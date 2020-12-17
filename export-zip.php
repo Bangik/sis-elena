@@ -23,7 +23,10 @@ if(isset($_GET['id']) && isset($_GET['idm']) && isset($_GET['idg']))  {
     $nama = $nama_tugas['nama_tugas'].time().".zip";  // nama Zip
     if($zip->open($nama, ZIPARCHIVE::CREATE)===TRUE) {
       while ($tampil_tugas = mysqli_fetch_array($tampil_tugas_query)){
-         $zip->addFile($file_folder.$tampil_tugas['file'], $file_folder.$no++.". ".$tampil_tugas['file']);
+        if (is_null($tampil_tugas['file'])) {
+          $tampil_tugas['file'] = "Kosong.txt";
+        }
+        $zip->addFile($file_folder.$tampil_tugas['file'], $file_folder.$no++.". ".$tampil_tugas['file']);
       }
       $zip->close();
     }
