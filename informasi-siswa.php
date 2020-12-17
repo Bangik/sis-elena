@@ -13,10 +13,12 @@
             <div class="card-body">
                 <h5 class="card-title"><?php echo $hasil['judul_informasi']; ?></h5>
                 <p class="card-text"><?php echo $hasil['deskripsi']; ?></p>
-                <p></p>
             </div>
           </div>
         </div>
+      </div>
+      <div class="mb-4 text-center">
+        <a href="akademik-siswa.php" class="btn btn-success" role="button">Kembali</a>
       </div>
     </div>
     <!-- main end-->

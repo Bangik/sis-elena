@@ -51,7 +51,8 @@
           <form action="" method="post">
             <div class="form-row">
               <a href="export-rekap-presensi.php?id=<?php echo $id_kelas;?>&idm=<?php echo $kode_guru; ?>" type="button" name="btn_export" class="btn btn-success mr-4 btn-print2">Export Excel</a>
-              <button href="#" type="button" class="btn btn-success mr-4 btn-print btn-print2">Print</a>
+              <a href="#" type="button" class="btn btn-success mr-4 btn-print btn-print2">Print</a>
+              <a href="rekap-presensi-kelas.php" class="btn btn-success" role="button">Kembali</a>
             </div>
           </form>
         </div>
