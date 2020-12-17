@@ -8,18 +8,8 @@
     $password = $_POST['password_guru'];
     $mapel = $_POST['kode_mapel'];
     //$kode_aktivitas2 = $_POST['aktivitas'];
-    $querynya = mysqli_query($link, "UPDATE guru SET nip='$nip', nama='$nama', email='$email', alamat='$alamat', password_guru='$password', kode_mapel='$mapel' WHERE nip='$nip'");
+    $querynya = mysqli_query($link, "UPDATE guru SET nip='$nip', nama='$nama', email='$email', alamat='$alamat', password_guru='$password', kode_mapel='$mapel' WHERE nip='$nip' ORDER BY nip ASC");
   }
-    if (isset($_GET['Nip'])) {
-      $id_anggota=$_GET[" nip"];
-      $hasil=mysqli_query($link,"delete from guru where id_anggota='$id_anggota' ");
-      if ($hasil) {
-        echo "<script>document.location='admin_guru.php'</script>";
-      }
-      else {
-        echo "<div class='alert alert-danger'> Data Gagal dihapus.</div>";
-      }
-    }
 ?>
   <div class="container">
     <div class="row row-cols-1 row-cols-md-1">
@@ -35,13 +25,13 @@
                 <th>Password</th>
                 <th>Alamat</th>
                 <th>Email</th>
-                <th>mapel</th>
-                <th>opsi</th>
+                <th>Mapel</th>
+                <th>Aksi</th>
               </tr>
               </thead>
               <tbody>
                 <?php
-                $hasil=mysqli_query($link, "SELECT * FROM guru order by nip desc");
+                $hasil=mysqli_query($link, "SELECT guru.nip, guru.nama, guru.password_guru, guru.alamat, guru.email, mapel.nama_mapel FROM guru LEFT JOIN mapel ON guru.kode_mapel = mapel.kode_mapel order by nip desc");
                 $no=1;
                 while ($data = mysqli_fetch_array($hasil)) {
                 ?>
@@ -52,7 +42,7 @@
                   <td><?php echo $data["password_guru"];   ?></td>
                   <td><?php echo $data["alamat"];   ?></td>
                   <td><?php echo $data["email"];   ?></td>
-                  <td><?php echo $data["kode_mapel"];   ?></td>
+                  <td><?php echo $data["nama_mapel"];   ?></td>
                   <td>
                     <a href="#" type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal<?php echo $data['nip']; ?>">Ubah</a>
                     <a href="delete-guru.php?id=<?php echo $data['nip']; ?>" class="btn btn-danger" role="button" onclick="return confirm('apakah anda ingin menghapus data ini?')">Hapus</a>
@@ -72,27 +62,37 @@
                         <form action="" method="post">
                           <div class="form-group">
                             <label>Nip</label>
-                            <input type="text" name="nip" class="form-control" placeholder="Input nip" required>
+                            <input type="text" name="nip" class="form-control" placeholder="Input nip" value="<?php echo $data['nip']; ?>">
                           </div>
                           <div class="form-group">
                             <label>Nama</label>
-                            <input type="text" name="nama" class="form-control" placeholder="Input nama" required>
+                            <input type="text" name="nama" class="form-control" placeholder="Input nama" value="<?php echo $data['nama']; ?>">
                           </div>
                           <div class="form-group">
                             <label>Email</label>
-                            <input type="text" name="email" class="form-control" placeholder="Input email" required>
+                            <input type="text" name="email" class="form-control" placeholder="Input email" value="<?php echo $data['email']; ?>">
                           </div>
                           <div class="form-group">
                             <label>Alamat</label>
-                            <input type="text" name="alamat" class="form-control" placeholder="Input alamat" required>
+                            <input type="text" name="alamat" class="form-control" placeholder="Input alamat" value="<?php echo $data['alamat']; ?>">
                           </div>
                           <div class="form-group">
                             <label>Password</label>
-                            <input type="text" name="password_guru" class="form-control" placeholder="Input password_guru" required>
+                            <input type="password" name="password_guru" class="form-control" placeholder="Input password_guru" value="<?php echo $data['password_guru']; ?>">
                           </div>
                           <div class="form-group">
-                            <label>Mapel</label>
-                            <input type="text" name="kode_mapel" class="form-control" placeholder="Input kode_mapel" required>
+                            <label for="inputState">Mapel</label>
+                            <select id="inputState" class="form-control" name="kode_mapel">
+                            <?php
+                              $query_mapel = mysqli_query($link, "SELECT DISTINCT kode_mapel, nama_mapel FROM mapel GROUP BY nama_mapel");
+                              while ($row = mysqli_fetch_array($query_mapel)) {
+                            ?>
+                            <option value="<?php echo $row['kode_mapel']; ?>"><?php echo $row['nama_mapel']; ?></option>
+                            <?php
+                              }
+                            ?>
+
+                            </select>
                           </div>
                       </div>
                       <!-- Modal footer -->
