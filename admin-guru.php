@@ -14,6 +14,9 @@
   <div class="container">
     <div class="row row-cols-1 row-cols-md-1">
       <div class="col mb-4">
+        <div class="text-center h2" style="display:none;">
+          <h2>Daftar Guru</h2>
+        </div>
         <div class="card">
           <div class="card-body">
             <table class="table table-bordered table-hover">
@@ -26,7 +29,7 @@
                 <th>Alamat</th>
                 <th>Email</th>
                 <th>Mapel</th>
-                <th>Aksi</th>
+                <th class="btn-print2">Aksi</th>
               </tr>
               </thead>
               <tbody>
@@ -43,7 +46,7 @@
                   <td><?php echo $data["alamat"];   ?></td>
                   <td><?php echo $data["email"];   ?></td>
                   <td><?php echo $data["nama_mapel"];   ?></td>
-                  <td>
+                  <td class="btn-print2">
                     <a href="#" type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal<?php echo $data['nip']; ?>">Ubah</a>
                     <a href="delete-guru.php?id=<?php echo $data['nip']; ?>" class="btn btn-danger" role="button" onclick="return confirm('apakah anda ingin menghapus data ini?')">Hapus</a>
                   </td>
@@ -113,10 +116,22 @@
         </div>
       </div>
     </div>
-    <a href="tambah-guru.php" class="btn btn-success" role="button">Tambah Data</a>
-    <a href="dashboard-admin.php" class="btn btn-success" role="button">Kembali</a>
+    <a href="tambah-guru.php" class="btn mr-4 btn-success btn-print2" role="button">Tambah Data</a>
+    <a href="export-guru.php" class="btn mr-4 btn-success btn-print2">Export Excel</a>
+    <a href="#" type="button" class="btn btn-success mr-4 btn-print btn-print2">Print</a>
+    <a href="dashboard-admin.php" class="btn mr-4 btn-success btn-print2" role="button">Kembali</a>
   </div>
-
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(".btn-print").click(function(){
+        $(".btn-print2").hide();
+        $(".h2").show();
+        window.print();
+        $(".btn-print2").show();
+        $(".h2").hide();
+      })
+    });
+  </script>
 <?php
   include 'templates/footer.php'
 ?>

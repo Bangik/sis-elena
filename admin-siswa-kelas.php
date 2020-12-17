@@ -3,6 +3,9 @@ include 'templates/header-admin.php';
   $kode_kelas = $_GET['id'];
   $idk = $_GET['idk'];
 
+  $query_kelas = mysqli_query($link, "SELECT nama FROM kelas WHERE kd_kelas='$kode_kelas'");
+  $kelas = mysqli_fetch_array($query_kelas);
+
 if (isset($_POST['simpan'])) {
   $nis = $_POST['nis'];
   $nama = $_POST['nama'];
@@ -17,6 +20,9 @@ if (isset($_POST['simpan'])) {
 <div class="container">
   <div class="row row-cols-1 row-cols-md-1">
     <div class="col mb-4">
+      <div class="text-center h2" style="display:none;">
+        <h2>DAFTAR SISWA KELAS <?php echo " ".$kelas['nama']; ?></h2>
+      </div>
       <div class="card">
         <div class="card-body">
           <table class="table table-hover">
@@ -28,7 +34,7 @@ if (isset($_POST['simpan'])) {
                 <th>Password</th>
                 <th>Alamat</th>
                 <th>Email</th>
-                <th colspan="2">Aksi</th>
+                <th colspan="2" class="btn-print2">Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -45,10 +51,10 @@ if (isset($_POST['simpan'])) {
                 <td><?php echo $data["password"];   ?></td>
                 <td><?php echo $data["alamat"];   ?></td>
                 <td><?php echo $data["email"];   ?></td>
-                <td>
-                  <a href="#" type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal<?php echo $data['nis'];?>">Edit</a>
+                <td class="btn-print2">
+                  <a href="#" type="button" class="btn btn-success " data-toggle="modal" data-target="#myModal<?php echo $data['nis'];?>">Edit</a>
                 </td>
-                <td><a href="delete-siswa.php?id=<?php echo $data['nis']; ?>&idm=<?php echo $kode_kelas; ?>&idk=<?php echo $idk; ?>" class="btn btn-danger" role="button" onclick="return confirm('apakah anda ingin menghapus data ini?')">Hapus</a></td>
+                <td class="btn-print2"><a href="delete-siswa.php?id=<?php echo $data['nis']; ?>&idm=<?php echo $kode_kelas; ?>&idk=<?php echo $idk; ?>" class="btn btn-danger" role="button" onclick="return confirm('apakah anda ingin menghapus data ini?')">Hapus</a></td>
               </tr>
               <!-- The Modal -->
                 <div class="container">
@@ -108,13 +114,12 @@ if (isset($_POST['simpan'])) {
                         </div>
                         </form>
                       </div>
-
                     </div>
                     </div>
                   </div>
                 </div>
-                  </tbody>
-                  <?php
+              </tbody>
+              <?php
               }
               ?>
           </table>
@@ -122,10 +127,22 @@ if (isset($_POST['simpan'])) {
       </div>
     </div>
   </div>
-  <a href="tambah-siswa.php?id=<?php echo $kode_kelas; ?>&idk=<?php echo $idk; ?>" class="btn btn-success" role="button">Tambah Data</a>
-  <a href="admin-pilih-kelas.php?id=<?php echo $idk; ?>" class="btn btn-success" role="button">Kembali</a>
+  <a href="tambah-siswa.php?id=<?php echo $kode_kelas; ?>&idk=<?php echo $idk; ?>" class="btn btn-success mr-4 btn-print2" role="button">Tambah Data</a>
+  <a href="export-siswa.php?id=<?php echo $kode_kelas; ?>&idk=<?php echo $idk; ?>" class="btn mr-4 btn-success btn-print2">Export Excel</a>
+  <a href="#" type="button" class="btn btn-success mr-4 btn-print btn-print2">Print</a>
+  <a href="admin-pilih-kelas.php?id=<?php echo $idk; ?>" class="btn btn-success mr-4 btn-print2" role="button">Kembali</a>
 </div>
-
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".btn-print").click(function(){
+      $(".btn-print2").hide();
+      $(".h2").show();
+      window.print();
+      $(".btn-print2").show();
+      $(".h2").hide();
+    })
+  });
+</script>
 
 
 
