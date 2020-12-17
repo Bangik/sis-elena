@@ -33,7 +33,7 @@
         <div class="form-row">
           <a href="export-tugas.php?id=<?php echo $kode_aktivitas;?>&idm=<?php echo $idm; ?>&idg=<?php echo $kodeGuru; ?>" type="button" name="btn_export" class="btn btn-success mr-4 btn-print2">Export Excel</a>
           <a href="export-zip.php?id=<?php echo $kode_aktivitas;?>&idm=<?php echo $idm; ?>&idg=<?php echo $kodeGuru; ?>" type="button" name="btn_export" class="btn btn-success mr-4 btn-print2">Download Semua File Siswa</a>
-          <button href="#" type="button" class="btn btn-success mr-4 btn-print btn-print2">Print</a>
+          <a href="#" type="button" class="btn btn-success mr-4 btn-print btn-print2">Print</a>
         </div>
       </form>
     </div>
