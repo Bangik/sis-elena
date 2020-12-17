@@ -1,5 +1,5 @@
 <?php
-  require_once "config/init.php";
+require_once "config/init.php";
   if (isset($_GET['id'])) {
     $id_kelas = $_GET['id'];
     $kode_guru = $_GET['idm'];
@@ -9,13 +9,13 @@
   $hasil_query_kode_mapel = mysqli_fetch_array($query_kode_mapel);
   $hasil = $hasil_query_kode_mapel['kode_mapel'];
 
-  $query = mysqli_query($link, "SELECT tugas.nis, tugas.kode_mapel, tugas.nilai, siswa.nama, AVG(tugas.nilai) AS rata FROM tugas LEFT JOIN siswa ON tugas.nis = siswa.nis WHERE kode_mapel='$hasil' GROUP BY tugas.nis");
+  $query = mysqli_query($link, "SELECT presensi.nis, presensi.kode_mapel, presensi.status AS masuk, COUNT(presensi.status) AS jumlah, siswa.nama, COUNT(presensi.catatan) AS rata FROM presensi LEFT JOIN siswa ON presensi.nis = siswa.nis WHERE kode_mapel='$hasil' GROUP BY presensi.nis");
 
   $query2 = mysqli_query($link, "SELECT nama FROM kelas WHERE kd_kelas='$id_kelas' ");
   $nama_kelas = mysqli_fetch_array($query2);
 
   header("Content-type: application/vnd-ms-excel");
-	header("Content-Disposition: attachment; filename=Rekap Nilai Kelas " .$nama_kelas['nama'] .".xls");
+  header("Content-Disposition: attachment; filename=Rekap Presensi Kelas " .$nama_kelas['nama'] .".xls");
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -34,7 +34,7 @@
       <div class="row row-cols-1 row-cols-md-1 text-center">
         <div class="col mb-4">
           <div class="text-center">
-            <h2>REKAP NILAI KELAS <?php echo $nama_kelas['nama']; ?></h2>
+            <h2>REKAP PRESENSI KELAS <?php echo $nama_kelas['nama']; ?></h2>
           </div>
           <div class="card">
             <table class="table">
@@ -42,30 +42,27 @@
                 <tr>
                   <th scope="col">No</th>
                   <th scope="col">Nama</th>
-                  <th scope="col">Rata - Rata Nilai</th>
+                  <th scope="col">Jumlah Presensi</th>
+                  <th scope="col">Total Aktivitas Presensi</th>
                 </tr>
               </thead>
               <tbody>
                 <?php
                   $no = 1;
-                  while ($hasil2 = mysqli_fetch_array($query)):
+                  while ($hasil = mysqli_fetch_array($query)):
                 ?>
                 <tr>
                   <td><?php echo $no++; ?></td>
-                  <td><?php echo $hasil2['nama']; ?></td>
-                  <td><?php
-                    if (is_null($hasil2['rata'])) {
-                      echo 0;
-                    }else {
-                      echo $hasil2['rata'];
-                    }
-
-                  ?></td>
+                  <td><?php echo $hasil['nama']; ?></td>
+                  <td><?php echo $hasil['jumlah'];?></td>
+                  <td><?php echo $hasil['rata'] ?></td>
                 </tr>
               <?php endwhile; ?>
               </tbody>
             </table>
           </div>
         </div>
+      </div>
+    </div>
   </body>
 </html>

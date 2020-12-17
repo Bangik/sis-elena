@@ -1,16 +1,20 @@
 <?php
-require_once "config/init.php";
-$kode_aktivitas = $_GET['id'];
-$idm = $_GET['idm'];
-$idg = $_GET['idg'];
+  require_once "config/init.php";
+  $kode_aktivitas = $_GET['id'];
+  $idm = $_GET['idm'];
+  $idg = $_GET['idg'];
 
-$kodeMapelGuruQuery = mysqli_query($link, "SELECT * FROM tb_mengajar where kode_guru='$idg' and kode_kelas='$idm'");
-$kodeMapelGuru = mysqli_fetch_array($kodeMapelGuruQuery);
-$kodeMapelGuru2 = $kodeMapelGuru['kode_mapel'];
+  $kodeMapelGuruQuery = mysqli_query($link, "SELECT * FROM tb_mengajar where kode_guru='$idg' and kode_kelas='$idm'");
+  $kodeMapelGuru = mysqli_fetch_array($kodeMapelGuruQuery);
+  $kodeMapelGuru2 = $kodeMapelGuru['kode_mapel'];
 
-$tampil_tugas_query = mysqli_query($link, "SELECT tugas.jam, tugas.tanggal, tugas.status, tugas.file, tugas.nilai, mapel.nama_mapel, siswa.nis, siswa.nama FROM tugas LEFT JOIN mapel ON tugas.kode_mapel = mapel.kode_mapel LEFT JOIN siswa ON tugas.nis=siswa.nis WHERE tugas.kode_mapel='$kodeMapelGuru2' AND tugas.kode_aktivitas_tugas='$kode_aktivitas' ORDER BY siswa.nis  ASC ");
+  $tampil_tugas_query = mysqli_query($link, "SELECT tugas.jam, tugas.tanggal, tugas.status, tugas.file, tugas.nilai, mapel.nama_mapel, siswa.nis, siswa.nama FROM tugas LEFT JOIN mapel ON tugas.kode_mapel = mapel.kode_mapel LEFT JOIN siswa ON tugas.nis=siswa.nis WHERE tugas.kode_mapel='$kodeMapelGuru2' AND tugas.kode_aktivitas_tugas='$kode_aktivitas' ORDER BY siswa.nis  ASC ");
+
+  $query2 = mysqli_query($link, "SELECT nama FROM kelas WHERE kd_kelas='$idm' ");
+  $nama_kelas = mysqli_fetch_array($query2);
+
   header("Content-type: application/vnd-ms-excel");
-	header("Content-Disposition: attachment; filename=Data Nilai Kelas " .$idm .".xls");
+	header("Content-Disposition: attachment; filename=Data Nilai Kelas " .$nama_kelas['nama'] .".xls");
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -25,6 +29,9 @@ $tampil_tugas_query = mysqli_query($link, "SELECT tugas.jam, tugas.tanggal, tuga
     <title></title>
   </head>
   <body>
+    <div class="text-center">
+      <h2>DATA NILAI DAN TUGAS KELAS <?php echo $nama_kelas['nama']; ?></h2>
+    </div>
     <table class="table">
       <thead>
         <tr>
