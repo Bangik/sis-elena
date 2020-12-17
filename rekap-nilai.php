@@ -42,7 +42,7 @@
                     if (is_null($hasil['rata'])) {
                       echo 0;
                     }else {
-                      echo $hasil['rata'];
+                      echo round($hasil['rata'],1);
                     }
 
                   ?></td>
