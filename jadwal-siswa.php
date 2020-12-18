@@ -1,6 +1,8 @@
 <?php
-  include 'templates/header-guru.php';
-  $query = mysqli_query($link, "SELECT * FROM jadwal_guru ORDER BY id DESC LIMIT 1");
+  include 'templates/header.php';
+  $kode_kelas = $rowUser['kode_kelas'];
+
+  $query = mysqli_query($link, "SELECT * FROM jadwal WHERE kode_kelas='$kode_kelas' ORDER BY id_jadwal DESC LIMIT 1");
   $hasil = mysqli_fetch_array($query);
 ?>
 
@@ -9,7 +11,7 @@
     <div class="col mb-4">
       <div class="card">
         <div class="card-body">
-          <h3 class="card-title">Jadwal Mengajar Akan Ditampilkan Disini</h3>
+          <h3 class="card-title">Jadwal Pelajaran Akan Ditampilkan Disini</h3>
           <img src="<?php echo $hasil['file']; ?>" alt="...">
         </div>
       </div>
