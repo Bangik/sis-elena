@@ -27,7 +27,7 @@
       <div class="row row-cols-1 row-cols-md-1">
         <div class="col mb-4">
           <div class="card">
-            <div class="card-body">
+            <div class="card-body table-responsive-lg">
               <table class="table table-hover">
                 <thead>
                 <tr class="text-center">
