@@ -13,7 +13,7 @@
           <div class="text-center">
             <h2>REKAP PRESENSI SISWA</h2>
           </div>
-          <div class="card">
+          <div class="card table-responsive-md">
             <table class="table">
               <thead>
                 <tr>

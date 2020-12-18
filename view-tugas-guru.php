@@ -39,7 +39,7 @@
     </div>
     <div class="col mb-4">
       <div class="card">
-          <div class="card-body">
+          <div class="card-body table-responsive-md">
             <table class="table">
               <thead>
                 <tr>

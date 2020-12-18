@@ -10,7 +10,7 @@
       <div class="card">
         <div class="card-body">
           <h3 class="card-title">Jadwal Mengajar Akan Ditampilkan Disini</h3>
-          <img src="<?php echo $hasil['file']; ?>" alt="...">
+          <img src="<?php echo $hasil['file']; ?>" class="img-fluid" alt="...">
         </div>
       </div>
     </div>

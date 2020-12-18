@@ -30,7 +30,7 @@
             <a href="rekap-presensi-kelas.php" class="text-color-a">
               <img src="./asset/img/matematika-logo.jpg" class="card-img-top mx-auto d-block" alt="..." style="width:70%">
               <div class="card-body">
-                <h5 class="card-title">Rekap Presensi</h5>
+                <h5 class="card-title">Edit / Tambah Kelas</h5>
               </div>
             </a>
           </div>
@@ -40,7 +40,7 @@
             <a href="rekap-nilai-kelas.php" class="text-color-a">
               <img src="./asset/img/matematika-logo.jpg" class="card-img-top mx-auto d-block" alt="..." style="width:70%">
               <div class="card-body">
-                <h5 class="card-title">Rekap Nilai</h5>
+                <h5 class="card-title">Edit / Tambah Mapel</h5>
               </div>
             </a>
           </div>

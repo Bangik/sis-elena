@@ -21,7 +21,7 @@
           <div class="text-center h2" style="display:none;">
             <h2>REKAP PRESENSI</h2>
           </div>
-          <div class="card">
+          <div class="card table-responsive-md">
             <table class="table">
               <thead>
                 <tr>
