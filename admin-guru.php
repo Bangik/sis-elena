@@ -18,7 +18,7 @@
           <h2>Daftar Guru</h2>
         </div>
         <div class="card">
-          <div class="card-body">
+          <div class="card-body table-responsive-lg">
             <table class="table table-bordered table-hover">
               <thead>
               <tr>

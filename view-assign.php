@@ -43,7 +43,7 @@
             <div class="card">
                 <div class="card-body">
                   <h5 class="card-title">Status Tugas</h5>
-                  <div class="card bg-transparent border-0 table-responsive-md" style="width: 25rem;">
+                  <div class="card bg-transparent border-0 table-responsive-lg" style="width: 25rem;">
                     <table class="table">
                       <tbody>
                         <tr>

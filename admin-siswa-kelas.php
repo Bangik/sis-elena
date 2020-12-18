@@ -24,7 +24,7 @@ if (isset($_POST['simpan'])) {
         <h2>DAFTAR SISWA KELAS <?php echo " ".$kelas['nama']; ?></h2>
       </div>
       <div class="card">
-        <div class="card-body">
+        <div class="card-body table-responsive-lg">
           <table class="table table-hover">
             <thead>
               <tr>

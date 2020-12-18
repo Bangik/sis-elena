@@ -30,7 +30,7 @@
             <div class="card">
                 <div class="card-body">
                   <h5 class="card-title">Presensi</h5>
-                  <div class="card bg-transparent border-0 table-responsive-md" style="width: 18rem;">
+                  <div class="card bg-transparent border-0 table-responsive-lg" style="width: 18rem;">
                     <table class="table">
                       <thead>
                         <tr>

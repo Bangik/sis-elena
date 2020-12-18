@@ -21,7 +21,7 @@
           <div class="text-center h2" style="display:none;">
             <h2>REKAP NILAI TUGAS</h2>
           </div>
-          <div class="card table-responsive-md">
+          <div class="card table-responsive-lg">
             <table class="table">
               <thead>
                 <tr>
