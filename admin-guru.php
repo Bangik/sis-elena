@@ -117,6 +117,7 @@
       </div>
     </div>
     <a href="tambah-guru.php" class="btn mr-4 btn-success btn-print2" role="button">Tambah Data</a>
+    <a href="import-guru.php" class="btn mr-4 btn-success btn-print2" role="button">Import Data</a>
     <a href="export-guru.php" class="btn mr-4 btn-success btn-print2">Export Excel</a>
     <a href="#" type="button" class="btn btn-success mr-4 btn-print btn-print2">Print</a>
     <a href="dashboard-admin.php" class="btn mr-4 btn-success btn-print2" role="button">Kembali</a>

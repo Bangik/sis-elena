@@ -128,6 +128,7 @@ if (isset($_POST['simpan'])) {
     </div>
   </div>
   <a href="tambah-siswa.php?id=<?php echo $kode_kelas; ?>&idk=<?php echo $idk; ?>" class="btn btn-success mr-4 btn-print2" role="button">Tambah Data</a>
+  <a href="import-siswa.php?id=<?php echo $kode_kelas; ?>&idk=<?php echo $idk; ?>" class="btn mr-4 btn-success btn-print2" role="button">Import Data</a>
   <a href="export-siswa.php?id=<?php echo $kode_kelas; ?>&idk=<?php echo $idk; ?>" class="btn mr-4 btn-success btn-print2">Export Excel</a>
   <a href="#" type="button" class="btn btn-success mr-4 btn-print btn-print2">Print</a>
   <a href="admin-pilih-kelas.php?id=<?php echo $idk; ?>" class="btn btn-success mr-4 btn-print2" role="button">Kembali</a>
