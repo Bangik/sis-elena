@@ -8,7 +8,7 @@
     $password = $_POST['password_guru'];
     $mapel = $_POST['kode_mapel'];
     //$kode_aktivitas2 = $_POST['aktivitas'];
-    $querynya = mysqli_query($link, "UPDATE guru SET nip='$nip', nama='$nama', email='$email', alamat='$alamat', password_guru='$password', kode_mapel='$mapel' WHERE nip='$nip' ORDER BY nip ASC");
+    $querynya = mysqli_query($link, "UPDATE guru SET nip='$_POST[nip2]', nama='$nama', email='$email', alamat='$alamat', password_guru='$password', kode_mapel='$mapel' WHERE nip='$nip' ORDER BY nip ASC");
   }
 ?>
   <div class="container">
@@ -65,7 +65,8 @@
                         <form action="" method="post">
                           <div class="form-group">
                             <label>Nip</label>
-                            <input type="text" name="nip" class="form-control" placeholder="Input nip" value="<?php echo $data['nip']; ?>">
+                            <input type="hidden" name="nip" value="<?php echo $data['nip']; ?>">
+                            <input type="text" name="nip2" class="form-control" placeholder="Input nip" value="<?php echo $data['nip']; ?>">
                           </div>
                           <div class="form-group">
                             <label>Nama</label>
