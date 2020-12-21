@@ -2,6 +2,7 @@
   include 'templates/header.php';
 
   $kelasUser = $rowUser['kode_kelas'];
+  $nis = $rowUser['nis'];
   $tampilMapel = mysqli_query($link, "SELECT nama_mapel, kode_mapel FROM mapel where kode_kelas = '$kelasUser'");
 
 ?>
@@ -11,15 +12,23 @@
       <div class="row row-cols-1 row-cols-md-4 text-center">
         <?php
           while ($dataMapel = mysqli_fetch_array($tampilMapel)) :
-            $queryhitung = mysqli_query($link, "SELECT COUNT(checkbox) AS total FROM materi_mapel WHERE kode_mapel='$dataMapel[kode_mapel]'");
+            $queryhitung = mysqli_query($link, "SELECT COUNT(checkbox) AS total FROM presensi WHERE kode_mapel='$dataMapel[kode_mapel]' AND nis='$nis'");
             $data_hitung = mysqli_fetch_array($queryhitung);
 
-            $queryhitung2 = mysqli_query($link, "SELECT COUNT(checkbox) AS y FROM materi_mapel WHERE kode_mapel='$dataMapel[kode_mapel]' and checkbox='completion-manual-y'");
+            $queryhitung1 = mysqli_query($link, "SELECT COUNT(checkbox) AS total2 FROM tugas WHERE kode_mapel='$dataMapel[kode_mapel]' AND nis='$nis'");
+            $data_hitung1 = mysqli_fetch_array($queryhitung1);
+
+            $queryhitung2 = mysqli_query($link, "SELECT COUNT(checkbox) AS y FROM presensi WHERE kode_mapel='$dataMapel[kode_mapel]' and checkbox='completion-manual-y' AND nis='$nis'");
             $data_hitung2 = mysqli_fetch_array($queryhitung2);
-            if ($data_hitung['total'] == 0) {
+
+            $queryhitung3 = mysqli_query($link, "SELECT COUNT(checkbox) AS y2 FROM tugas WHERE kode_mapel='$dataMapel[kode_mapel]' and checkbox='completion-manual-y' AND nis='$nis'");
+            $data_hitung3 = mysqli_fetch_array($queryhitung3);
+
+            if ($data_hitung['total'] == 0 and $data_hitung1['total2'] == 0) {
               $present = 0;
-            }else {
-              $present = $data_hitung2['y'] / $data_hitung['total'] * 100;
+            }
+            else {
+              $present = ($data_hitung2['y'] + $data_hitung3['y2']) / ($data_hitung['total'] + $data_hitung1['total2']) * 100;
             }
 
 
