@@ -35,7 +35,7 @@
                   <th>Kode Kelas</th>
                   <th>Nama</th>
                   <th>Tingkatan Kelas</th>
-                  <th>Aksi</th>
+                  <th colspan="2">Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -49,7 +49,8 @@
                     <td><?php echo $data["nama"];   ?></td>
                     <td><?php echo $data["tingkatan"];   ?></td>
                     <td>
-                      <a href="#" type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal<?php echo $data['kd_kelas']; ?>">Ubah</a>
+                      <a href="#" type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal<?php echo $data['kd_kelas']; ?>">Ubah</a>
+                      <a href="detail-kelas.php?id=<?php echo $data['kd_kelas']; ?>" class="btn btn-primary">Detail</a>
                     </td>
                   </tr>
                   <!-- The Modal -->
@@ -93,7 +94,7 @@
         </div>
       </div>
       <div class="mb-4">
-        <a href="#" class="btn mr-4 btn-success" role="button" data-toggle="modal" data-target="#myModal">Tambah Informasi</a>
+        <a href="#" class="btn mr-4 btn-success" role="button" data-toggle="modal" data-target="#myModal">Tambah Kelas</a>
         <a href="akademik-admin.php" class="btn btn-success" role="button">Kembali</a>
       </div>
     </div>

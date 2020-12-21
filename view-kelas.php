@@ -5,7 +5,14 @@
 
   $kodeMapelGuruQuery = mysqli_query($link, "SELECT * FROM tb_mengajar where kode_guru='$kodeGuru' and kode_kelas='$id'");
   $kodeMapelGuru = mysqli_fetch_array($kodeMapelGuruQuery);
-  $kodeMapelGuru2 = $kodeMapelGuru['kode_mapel'];
+  if ($kodeMapelGuru === NULL) {
+    $err = "disabled";
+    $err2 = "pointer-events: none;";
+    $kodeMapelGuru2 = "";
+  }else {
+    $kodeMapelGuru2 = $kodeMapelGuru['kode_mapel'];
+  }
+
 
   $tampilMateriQuery = mysqli_query($link, "SELECT materi_mapel.id, materi_mapel.judul, materi_mapel.kode_aktivitas, materi_mapel.kode_aktivitas2, materi_mapel.kode_aktivitas3, presensi2.nama_presensi, tugas2.nama_tugas FROM materi_mapel LEFT JOIN presensi2 ON materi_mapel.kode_aktivitas=presensi2.kode_aktivitas LEFT JOIN tugas2 ON materi_mapel.kode_aktivitas2=tugas2.kode_aktivitas2 where materi_mapel.kode_mapel='$kodeMapelGuru2' AND materi_mapel.kode_kelas='$id'");
 ?>
@@ -40,7 +47,7 @@
           <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Tambah Aktivitas Baru</h5>
-                <a href="tambah-aktivitas.php?id=<?php echo $id; ?>" class="btn btn-primary">Tambah</a>
+                <a href="tambah-aktivitas.php?id=<?php echo $id; ?>" class="btn btn-primary <?php echo $err; ?>" style="<?php echo $err2; ?>">Tambah</a>
               </div>
           </div>
         </div>
