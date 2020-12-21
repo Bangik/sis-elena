@@ -39,35 +39,71 @@
       $err = "Gagal Upload, Ukuran File Terlalu Besar. Maks 20 MB";
     }
 
-    //insert ke tabel presensi2
-    $query_simpan_presensi = mysqli_query($link, "INSERT INTO presensi2(nama_presensi, kode_mapel, tanggal_mulai, jam_mulai, tanggal_akhir, jam_akhir, deskripsi) VALUES ('$nama_presensi', '$kode_mapel', '$tanggal_mulai_presensi', '$jam_mulai_presensi', '$tanggal_akhir_prsensi', '$jam_akhir_prsensi', '$deskripsi_presensi')");
+    if ($nama_presensi == "") {
+      //insert ke tabel tugas2
+      $query_simpan_tugas = mysqli_query($link, "INSERT INTO tugas2(nama_tugas, kode_mapel, tanggal_mulai, jam_mulai, tanggal_akhir, jam_akhir, deskripsi, nama_file, file) VALUES ('$nama_tugas', '$kode_mapel', '$tanggal_mulai_tugas', '$jam_mulai_tugas', '$tanggal_akhir_tugas', '$jam_akhir_tugas', '$deskripsi_tugas', '$nama_file', '$tempp')");
 
-    //insert ke tabel tugas2
-    $query_simpan_tugas = mysqli_query($link, "INSERT INTO tugas2(nama_tugas, kode_mapel, tanggal_mulai, jam_mulai, tanggal_akhir, jam_akhir, deskripsi, nama_file, file) VALUES ('$nama_tugas', '$kode_mapel', '$tanggal_mulai_tugas', '$jam_mulai_tugas', '$tanggal_akhir_tugas', '$jam_akhir_tugas', '$deskripsi_tugas', '$nama_file', '$tempp')");
+      $query_simpan_presensi = "";
+    }elseif ($nama_tugas == "") {
+      //insert ke tabel presensi2
+      $query_simpan_presensi = mysqli_query($link, "INSERT INTO presensi2(nama_presensi, kode_mapel, tanggal_mulai, jam_mulai, tanggal_akhir, jam_akhir, deskripsi) VALUES ('$nama_presensi', '$kode_mapel', '$tanggal_mulai_presensi', '$jam_mulai_presensi', '$tanggal_akhir_prsensi', '$jam_akhir_prsensi', '$deskripsi_presensi')");
 
-    if ($query_simpan_presensi && $query_simpan_tugas) {
+      $query_simpan_tugas = "";
+    }else {
+      $query_simpan_tugas = mysqli_query($link, "INSERT INTO tugas2(nama_tugas, kode_mapel, tanggal_mulai, jam_mulai, tanggal_akhir, jam_akhir, deskripsi, nama_file, file) VALUES ('$nama_tugas', '$kode_mapel', '$tanggal_mulai_tugas', '$jam_mulai_tugas', '$tanggal_akhir_tugas', '$jam_akhir_tugas', '$deskripsi_tugas', '$nama_file', '$tempp')");
+
+      $query_simpan_presensi = mysqli_query($link, "INSERT INTO presensi2(nama_presensi, kode_mapel, tanggal_mulai, jam_mulai, tanggal_akhir, jam_akhir, deskripsi) VALUES ('$nama_presensi', '$kode_mapel', '$tanggal_mulai_presensi', '$jam_mulai_presensi', '$tanggal_akhir_prsensi', '$jam_akhir_prsensi', '$deskripsi_presensi')");
+    }
+
+    if ($query_simpan_presensi or $query_simpan_tugas) {
       //ambil kode aktivitas presensi yang udah di insert di presensi2
       $query_tampil_presensi = mysqli_query($link, "SELECT kode_aktivitas FROM presensi2 WHERE nama_presensi='$nama_presensi'AND kode_mapel='$kode_mapel'AND tanggal_mulai='$tanggal_mulai_presensi' AND jam_mulai='$jam_mulai_presensi' AND tanggal_akhir='$tanggal_akhir_prsensi' AND jam_akhir='$jam_akhir_prsensi' AND deskripsi='$deskripsi_presensi' ");
       $hasil_query_tampil_presensi = mysqli_fetch_array($query_tampil_presensi);
-      $kode_aktivitas1 = $hasil_query_tampil_presensi['kode_aktivitas'];
+      if ($hasil_query_tampil_presensi === NULL) {
+        $kode_aktivitas1 = NULL;
+      }else {
+        $kode_aktivitas1 = $hasil_query_tampil_presensi['kode_aktivitas'];
+      }
 
       //ambil kode aktivitas tugas yang udah di insert di tugas2
       $query_tampil_tugas = mysqli_query($link, "SELECT kode_aktivitas2 FROM tugas2 WHERE nama_tugas='$nama_tugas'AND kode_mapel='$kode_mapel'AND tanggal_mulai='$tanggal_mulai_tugas' AND jam_mulai='$jam_mulai_tugas' AND tanggal_akhir='$tanggal_akhir_tugas' AND jam_akhir='$jam_akhir_tugas' AND deskripsi='$deskripsi_tugas' ");
       $hasil_query_tampil_tugas = mysqli_fetch_array($query_tampil_tugas);
-      $kode_aktivitas2 = $hasil_query_tampil_tugas['kode_aktivitas2'];
-
-      //insert ke tabel materi mapel
-      $query_insert_materi_mapel = mysqli_query($link, "INSERT INTO materi_mapel(kode_mapel, judul, kode_aktivitas, kode_aktivitas2, kode_aktivitas3, kode_kelas, checkbox) VALUES ('$kode_mapel', '$judul', '$kode_aktivitas1', $kode_aktivitas2, NULL, '$_POST[kelas]', 'completion-manual-n') ");
-
+      if ($hasil_query_tampil_tugas === NULL) {
+        $kode_aktivitas2 = NULL;
+      }else {
+        $kode_aktivitas2 = $hasil_query_tampil_tugas['kode_aktivitas2'];
+      }
       //ambil siswa sesuai kelasnya
       $query_ambil_siswa = mysqli_query($link, "SELECT nis FROM siswa WHERE kode_kelas='$_POST[kelas]'");
 
-      //insert siswa ke tabel presensi
-      while ($nis = mysqli_fetch_array($query_ambil_siswa)) {
-        $query_insert_siswa = mysqli_query($link, "INSERT INTO presensi (kode_aktivitas, kode_mapel, nis) VALUES ('$kode_aktivitas1', '$kode_mapel', '$nis[nis]' )");
+      if (is_null($kode_aktivitas1)) {
+        //insert ke tabel materi mapel
+        $query_insert_materi_mapel = mysqli_query($link, "INSERT INTO materi_mapel(kode_mapel, judul, kode_aktivitas, kode_aktivitas2, kode_aktivitas3, kode_kelas) VALUES ('$kode_mapel', '$judul', NULL, $kode_aktivitas2, NULL, '$_POST[kelas]') ");
 
-        $query_insert_siswa2 = mysqli_query($link, "INSERT INTO tugas (kode_aktivitas_tugas, kode_mapel, nis) VALUES ('$kode_aktivitas2', '$kode_mapel', '$nis[nis]' )");
+        while ($nis = mysqli_fetch_array($query_ambil_siswa)) {
+          $query_insert_siswa2 = mysqli_query($link, "INSERT INTO tugas (kode_aktivitas_tugas, kode_mapel, nis, checkbox) VALUES ('$kode_aktivitas2', '$kode_mapel', '$nis[nis]','completion-manual-n' )");
+        }
+      }elseif (is_null($kode_aktivitas2)) {
+        $query_insert_materi_mapel = mysqli_query($link, "INSERT INTO materi_mapel(kode_mapel, judul, kode_aktivitas, kode_aktivitas2, kode_aktivitas3, kode_kelas) VALUES ('$kode_mapel', '$judul', '$kode_aktivitas1', NULL, NULL, '$_POST[kelas]') ");
+
+        //insert siswa ke tabel presensi
+        while ($nis = mysqli_fetch_array($query_ambil_siswa)) {
+          $query_insert_siswa = mysqli_query($link, "INSERT INTO presensi (kode_aktivitas, kode_mapel, nis, checkbox) VALUES ('$kode_aktivitas1', '$kode_mapel', '$nis[nis]','completion-manual-n' )");
+        }
+      }else {
+        //insert ke tabel materi mapel
+        $query_insert_materi_mapel = mysqli_query($link, "INSERT INTO materi_mapel(kode_mapel, judul, kode_aktivitas, kode_aktivitas2, kode_aktivitas3, kode_kelas) VALUES ('$kode_mapel', '$judul', $kode_aktivitas1, $kode_aktivitas2, NULL, '$_POST[kelas]') ");
+        //insert siswa ke tabel presensi
+        while ($nis = mysqli_fetch_array($query_ambil_siswa)) {
+          $query_insert_siswa = mysqli_query($link, "INSERT INTO presensi (kode_aktivitas, kode_mapel, nis, checkbox) VALUES ('$kode_aktivitas1', '$kode_mapel', '$nis[nis]','completion-manual-n' )");
+
+          $query_insert_siswa2 = mysqli_query($link, "INSERT INTO tugas (kode_aktivitas_tugas, kode_mapel, nis, checkbox) VALUES ('$kode_aktivitas2', '$kode_mapel', '$nis[nis]','completion-manual-n' )");
+        }
       }
+
+
+
+
       echo "<script>
               alert('Data BERHASIL disimpan " .$kode_aktivitas1.  "');
               document.location='view-kelas.php?id=" . $_POST['kelas'] ."';
