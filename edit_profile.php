@@ -5,7 +5,7 @@
 ?>
 
     <!-- main start-->
-    <div class="container" style="width:1000px">
+    <div class="container">
       <div class="row">
         <div class="col-sm">
           <div class="card border-dark mb-3" style="width: 15rem;">

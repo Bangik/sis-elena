@@ -43,7 +43,7 @@
       <div class="row row-cols-1 row-cols-md-1">
         <div class="col mb-4">
           <div class="card">
-            <div class="card-body">
+            <div class="card-body table-responsive-lg">
               <div class="card-title">
                 <h5>Jumlah Siswa : <?php echo $hasil['jumlah']; ?></h5>
                 <h5>Jumlah Mapel : <?php echo $hasil1['jumlah']; ?></h5>
