@@ -62,7 +62,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link fa fa-user-circle-o text-white dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <?php
-                  $nama_user = $rowUser['username_admin'];
+                  $nama_user = $rowUser['nama'];
                   $pecah_nama = explode(" ", $nama_user);
                   if (count($pecah_nama) > 2 ) {
                     echo htmlentities($pecah_nama[0] . " " . $pecah_nama[1]);
