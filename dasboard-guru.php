@@ -14,7 +14,7 @@
         <?php
           while ($dataMapel = mysqli_fetch_array($listKelas)) :
         ?>
-        <div class="col mb-4">
+        <div class="col mb-4 cardss">
           <div class="card">
             <a href="view-kelas.php?id=<?php echo $dataMapel['kode_kelas']; ?>" class="text-color-a">
               <img src="./asset/img/matematika-logo.jpg" class="card-img-top mx-auto d-block" alt="..." style="width:70%">
@@ -30,5 +30,6 @@
       </div>
     </div>
     <!-- main end-->
+    <script type="text/javascript" src="./asset/js/animatejs.js"></script>
 
 <?php include 'templates/footer.php' ?>

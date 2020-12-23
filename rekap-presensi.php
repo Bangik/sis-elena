@@ -8,7 +8,12 @@
 
   $query_kode_mapel = mysqli_query($link, "SELECT tb_mengajar.kode_guru, tb_mengajar.kode_mapel, tb_mengajar.kode_kelas FROM tb_mengajar LEFT JOIN kelas ON tb_mengajar.kode_kelas = kelas.kd_kelas WHERE tb_mengajar.kode_guru='$kode_guru' AND tb_mengajar.kode_kelas='$id_kelas'");
   $hasil_query_kode_mapel = mysqli_fetch_array($query_kode_mapel);
-  $hasil = $hasil_query_kode_mapel['kode_mapel'];
+  if ($hasil_query_kode_mapel === null) {
+    $hasil = "";
+  }else {
+    $hasil = $hasil_query_kode_mapel['kode_mapel'];
+  }
+
 
   $query = mysqli_query($link, "SELECT presensi.nis, presensi.kode_mapel, presensi.status AS masuk, COUNT(presensi.status) AS jumlah, siswa.nama, COUNT(presensi.catatan) AS rata FROM presensi LEFT JOIN siswa ON presensi.nis = siswa.nis WHERE kode_mapel='$hasil' GROUP BY presensi.nis");
 

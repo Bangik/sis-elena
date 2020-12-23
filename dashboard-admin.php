@@ -16,7 +16,7 @@
  <!-- main start-->
  <div class="container">
    <div class="row row-cols-1 row-cols-md-4 text-center">
-     <div class="col mb-4">
+     <div class="col mb-4 cardss">
        <div class="card">
          <a href="admin-guru.php" class="text-color-a">
            <img src="./asset/img/icon-teach.png" class="card-img-top mx-auto d-block" alt="..." style="width:70%">
@@ -27,7 +27,7 @@
          </a>
        </div>
      </div>
-     <div class="col mb-4">
+     <div class="col mb-4 cardss">
        <div class="card">
          <a href="admin-pilih-kelas.php?id=1" class="text-color-a">
            <img src="./asset/img/icon-class.png" class="card-img-top mx-auto d-block" alt="..." style="width:70%">
@@ -38,7 +38,7 @@
          </a>
        </div>
      </div>
-     <div class="col mb-4">
+     <div class="col mb-4 cardss">
        <div class="card">
          <a href="admin-pilih-kelas.php?id=2" class="text-color-a">
            <img src="./asset/img/icon-class.png" class="card-img-top mx-auto d-block" alt="..." style="width:70%">
@@ -49,7 +49,7 @@
          </a>
        </div>
      </div>
-     <div class="col mb-4">
+     <div class="col mb-4 cardss">
        <div class="card">
          <a href="admin-pilih-kelas.php?id=3" class="text-color-a">
            <img src="./asset/img/icon-class.png" class="card-img-top mx-auto d-block" alt="..." style="width:70%">
@@ -63,5 +63,6 @@
    </div>
  </div>
  <!-- main end-->
+ <script type="text/javascript" src="./asset/js/animatejs.js"></script>
 <?php
  include 'templates/footer.php' ?>

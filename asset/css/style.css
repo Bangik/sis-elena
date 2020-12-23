@@ -11,6 +11,17 @@ body{
 .nav-item{
   font-size: 20px;
 }
+.cardss{
+  opacity: 0;
+  transform: translate(0, -40px);
+  transition: .5s;
+}
+
+.cardss.muncul{
+  opacity: 1;
+  transform: translate(0,0);
+}
+
 .text-color-a{
   color: black;
 }
