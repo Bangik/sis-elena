@@ -66,7 +66,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Viga&display=swap" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="./asset/style-login.css" rel="stylesheet">
+    <link href="./asset/css/style-login.css" rel="stylesheet">
     <title>SIS ELENA LOG IN</title>
   </head>
   <body class="">
