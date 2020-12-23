@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2020 at 11:21 AM
+-- Generation Time: Dec 23, 2020 at 02:12 PM
 -- Server version: 10.4.16-MariaDB
 -- PHP Version: 7.4.12
 
@@ -30,6 +30,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `username_admin` varchar(20) NOT NULL,
+  `nama` varchar(35) NOT NULL,
+  `email` varchar(25) NOT NULL,
+  `alamat` varchar(100) NOT NULL,
   `password_admin` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -37,20 +40,8 @@ CREATE TABLE `admin` (
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `username_admin`, `password_admin`) VALUES
-(1, 'admin', '123');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `aktivitas`
---
-
-CREATE TABLE `aktivitas` (
-  `kode_aktivitas` varchar(15) NOT NULL,
-  `id_tugas` varchar(11) DEFAULT NULL,
-  `id_presensi` varchar(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `admin` (`id`, `username_admin`, `nama`, `email`, `alamat`, `password_admin`) VALUES
+(1, 'admin', 'admin', 'admin@polije.ac.id', 'Polije', '123');
 
 -- --------------------------------------------------------
 
@@ -73,7 +64,7 @@ CREATE TABLE `guru` (
 
 INSERT INTO `guru` (`nip`, `nama`, `email`, `alamat`, `password_guru`, `kode_mapel`) VALUES
 ('11134', 'Achmad Dinofaldi Firmansyah', 'admin@gmail.com', 'asd', '123', 'PA03'),
-('1233', 'Fatim', 'asd', 'Jember', '123', 'PA01'),
+('1233', 'Fatims', 'fatim@email.com', 'Jember', '123', 'PA01'),
 ('123334', 'Fatim 2', 'asd', 'Jember', '123', 'PA05'),
 ('2', 'tes mtk', 'asd', 'polije', '123', 'PA01');
 
@@ -224,29 +215,8 @@ INSERT INTO `materi_mapel` (`id`, `kode_mapel`, `judul`, `kode_aktivitas`, `kode
 (83, 'PA02', 'BAB 3 KALKULUS', 77, NULL, NULL, 'A01', NULL),
 (84, 'PA02', 'BAB 3 KALKULUS', NULL, 40, NULL, 'A01', NULL),
 (85, 'PA02', 'BAB 3 KALKULUS', 78, 41, NULL, 'A01', NULL),
-(86, 'PA03', 'BAB 3 HIDROGEN', 79, NULL, NULL, 'A01', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `nilai`
---
-
-CREATE TABLE `nilai` (
-  `kd_nilai` int(10) NOT NULL,
-  `tugas` int(11) NOT NULL,
-  `uts` int(11) NOT NULL,
-  `uas` int(11) NOT NULL,
-  `kuis` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `nilai`
---
-
-INSERT INTO `nilai` (`kd_nilai`, `tugas`, `uts`, `uas`, `kuis`) VALUES
-(1, 123, 123, 123, 123),
-(2, 123, 123, 123, 222);
+(86, 'PA03', 'BAB 3 HIDROGEN', 79, NULL, NULL, 'A01', NULL),
+(87, 'PA10', 'asd', 80, NULL, NULL, 'A02', NULL);
 
 -- --------------------------------------------------------
 
@@ -279,7 +249,8 @@ INSERT INTO `presensi` (`kd_presensi`, `kode_aktivitas`, `kode_mapel`, `nis`, `j
 (1129, 78, 'PA02', '1234', NULL, NULL, NULL, 0, 'completion-manual-n'),
 (1130, 79, 'PA03', '1112', NULL, NULL, NULL, 0, 'completion-manual-n'),
 (1131, 79, 'PA03', '1222', NULL, NULL, NULL, 0, 'completion-manual-n'),
-(1132, 79, 'PA03', '1234', NULL, NULL, NULL, 0, 'completion-manual-y');
+(1132, 79, 'PA03', '1234', NULL, NULL, NULL, 0, 'completion-manual-y'),
+(1133, 80, 'PA10', '1235', '17:34:57', '2020-12-23', 'hadir', 1, 'completion-manual-y');
 
 -- --------------------------------------------------------
 
@@ -305,7 +276,8 @@ CREATE TABLE `presensi2` (
 INSERT INTO `presensi2` (`kode_aktivitas`, `nama_presensi`, `kode_mapel`, `tanggal_mulai`, `jam_mulai`, `tanggal_akhir`, `jam_akhir`, `deskripsi`) VALUES
 (77, 'asd', 'PA02', '2020-02-02', '14:21:00', '2020-02-02', '02:12:00', 'ads'),
 (78, 'asd', 'PA02', '2020-12-12', '14:02:00', '2020-02-02', '02:12:00', '2121asd'),
-(79, 'ABSEN BAB 1', 'PA03', '2020-12-21', '02:13:00', '2020-02-12', '02:12:00', 'ADS');
+(79, 'ABSEN BAB 1', 'PA03', '2020-12-21', '02:13:00', '2020-02-12', '02:12:00', 'ADS'),
+(80, 'asd', 'PA10', '2000-12-01', '12:01:00', '2020-02-12', '14:01:00', '2121');
 
 -- --------------------------------------------------------
 
@@ -332,29 +304,8 @@ INSERT INTO `siswa` (`nis`, `nama`, `email`, `alamat`, `password`, `kode_kelas`)
 ('11123123123', 'Achmad Dinofaldi Firmansyah', 'admin@gmail.com', 'asd', '123', 'A11'),
 ('1112312313', 'Achmad Dinofaldi Firmansyah', 'admin@gmail.com', 'asddddd', '123', 'A11'),
 ('1222', 'Bangik', 'asd', 'asd', '123', 'A01'),
-('1234', 'Ricky Aditya Wardana', 'Meliodaskirisami@gmail.co', 'Desa Jajag Kecamatan Gambiran Banyuwangi', '123', 'A01'),
+('1234', 'Ricky Adityas Wardanas', 'Meliodaskirisami@gmail.co', 'Desa Jajag Kecamatan Gambiran Banyuwangi', '123', 'A01'),
 ('1235', 'Muhammad Audino Fakhri Arnandya', 'dino12@gmail.com', 'Desa Jajag Kecamatan Gambiran Banyuwangi', 'akabiluru1', 'A02');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tabel_hub_guru`
---
-
-CREATE TABLE `tabel_hub_guru` (
-  `kd_unik` int(10) NOT NULL,
-  `nip` int(20) NOT NULL,
-  `kode_mapel` int(10) NOT NULL,
-  `kd_nilai` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tabel_hub_guru`
---
-
-INSERT INTO `tabel_hub_guru` (`kd_unik`, `nip`, `kode_mapel`, `kd_nilai`) VALUES
-(1, 2, 3, 1),
-(2, 3, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -374,7 +325,7 @@ CREATE TABLE `tb_mengajar` (
 --
 
 INSERT INTO `tb_mengajar` (`kode_mengajar`, `kode_guru`, `kode_mapel`, `kode_kelas`) VALUES
-(1, '2', 'PA01', 'A01'),
+(1, '1233', 'PA01', 'A01'),
 (2, '1233', 'PA10', 'A02'),
 (3, '1233', 'PA18', 'A03'),
 (4, '123334', 'PA02', 'A01'),
@@ -454,16 +405,6 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `aktivitas`
---
-ALTER TABLE `aktivitas`
-  ADD PRIMARY KEY (`kode_aktivitas`),
-  ADD UNIQUE KEY `id_tugas_3` (`id_tugas`,`id_presensi`),
-  ADD KEY `id_tugas` (`id_tugas`,`id_presensi`),
-  ADD KEY `id_presensi` (`id_presensi`),
-  ADD KEY `id_tugas_2` (`id_tugas`,`id_presensi`);
-
---
 -- Indexes for table `guru`
 --
 ALTER TABLE `guru`
@@ -513,12 +454,6 @@ ALTER TABLE `materi_mapel`
   ADD KEY `kode_kelas` (`kode_kelas`);
 
 --
--- Indexes for table `nilai`
---
-ALTER TABLE `nilai`
-  ADD PRIMARY KEY (`kd_nilai`);
-
---
 -- Indexes for table `presensi`
 --
 ALTER TABLE `presensi`
@@ -540,15 +475,6 @@ ALTER TABLE `presensi2`
 ALTER TABLE `siswa`
   ADD PRIMARY KEY (`nis`),
   ADD KEY `kode_kelas` (`kode_kelas`);
-
---
--- Indexes for table `tabel_hub_guru`
---
-ALTER TABLE `tabel_hub_guru`
-  ADD PRIMARY KEY (`kd_unik`),
-  ADD KEY `nip` (`nip`),
-  ADD KEY `kd_mapel` (`kode_mapel`,`kd_nilai`),
-  ADD KEY `kd_nilai` (`kd_nilai`);
 
 --
 -- Indexes for table `tb_mengajar`
@@ -607,31 +533,19 @@ ALTER TABLE `jadwal_guru`
 -- AUTO_INCREMENT for table `materi_mapel`
 --
 ALTER TABLE `materi_mapel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
-
---
--- AUTO_INCREMENT for table `nilai`
---
-ALTER TABLE `nilai`
-  MODIFY `kd_nilai` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT for table `presensi`
 --
 ALTER TABLE `presensi`
-  MODIFY `kd_presensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1133;
+  MODIFY `kd_presensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1134;
 
 --
 -- AUTO_INCREMENT for table `presensi2`
 --
 ALTER TABLE `presensi2`
-  MODIFY `kode_aktivitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
-
---
--- AUTO_INCREMENT for table `tabel_hub_guru`
---
-ALTER TABLE `tabel_hub_guru`
-  MODIFY `kd_unik` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `kode_aktivitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `tb_mengajar`
@@ -701,12 +615,6 @@ ALTER TABLE `presensi2`
 --
 ALTER TABLE `siswa`
   ADD CONSTRAINT `siswa_ibfk_1` FOREIGN KEY (`kode_kelas`) REFERENCES `kelas` (`kd_kelas`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `tabel_hub_guru`
---
-ALTER TABLE `tabel_hub_guru`
-  ADD CONSTRAINT `tabel_hub_guru_ibfk_1` FOREIGN KEY (`kd_nilai`) REFERENCES `nilai` (`kd_nilai`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tb_mengajar`
