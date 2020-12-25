@@ -7,8 +7,8 @@
     header('Location: login.php');
   }
   global $link;
-  $idUser = $_SESSION['user'];
-  $tampil = mysqli_query($link, "SELECT * FROM siswa where nis='$idUser'");
+  $nisss = $_SESSION['user'];
+  $tampil = mysqli_query($link, "SELECT * FROM siswa where nis='$nisss'");
   $rowUser = mysqli_fetch_array($tampil);
 ?>
 <!doctype html>

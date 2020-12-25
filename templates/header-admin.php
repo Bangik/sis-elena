@@ -7,8 +7,8 @@
     header('Location: login.php');
   }
   global $link;
-  $idUser = $_SESSION['user_admin'];
-  $tampil = mysqli_query($link, "SELECT * FROM admin where username_admin='$idUser'");
+  $idUser_admin = $_SESSION['user_admin'];
+  $tampil = mysqli_query($link, "SELECT * FROM admin where username_admin='$idUser_admin'");
   $rowUser = mysqli_fetch_array($tampil);
 ?>
 <!doctype html>

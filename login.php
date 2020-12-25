@@ -3,8 +3,26 @@
 
   $error = '';
 
+  if (isset($_COOKIE['hashenc']) and isset($_COOKIE['00keys'])) {
+    $idUser = $_COOKIE['hashenc'];
+    $idsha = $_COOKIE['00keys'];
+    $query = mysqli_query($link, "SELECT nis FROM siswa WHERE id='$idsha'");
+    $nis = mysqli_fetch_array($query);
+    $query2 = mysqli_query($link, "SELECT nip FROM guru WHERE id='$idsha'");
+    $nip = mysqli_fetch_array($query2);
+    $query3 = mysqli_query($link, "SELECT username_admin FROM admin WHERE id='$idsha'");
+    $nia = mysqli_fetch_array($query3);
+    if ($idUser === hash('sha256', $nis['nis'])) {
+      $_SESSION['user'] = $nis['nis'];
+    }elseif ($idUser === hash('sha256', $nip['nip'])) {
+      $_SESSION['user_guru'] = $nip['nip'];
+    }elseif ($idUser === hash('sha256', $nia['username_admin'])) {
+      $_SESSION['user_admin'] = $nia['username_admin'];
+    }
+  }
+
   //redirect kalau user sudah login
-  if( isset($_SESSION['user']) ){
+  if( isset($_SESSION['user'])){
     header('Location: dasboard-siswa.php');
   }elseif (isset($_SESSION['user_guru'])) {
     header('Location: dasboard-guru.php');
@@ -12,28 +30,30 @@
     header('Location: dashboard-admin.php');
   }
 
-  //validasi register
   if( isset($_POST['submit']) ){
     $nama = $_POST['username'];
     $pass = $_POST['password'];
+    if (isset($_POST['remember'])) {
+      $ceklist = "cek";
+    }
 
     if(!empty(trim($nama)) && !empty(trim($pass)) ){
 
       if(cek_nama($nama) != 0 ){
         if(cek_data($nama, $pass)){
-          redirect_login($nama);
+          redirect_login($nama, $ceklist);
         }else{
           $error = 'data ada yang salah';
         }
       }elseif (cek_nama_guru($nama) != 0) {
         if(cek_data_guru($nama, $pass)){
-          redirect_login_guru($nama);
+          redirect_login_guru($nama, $ceklist);
         }else {
           $error = 'data ada yang salah';
         }
       }elseif (cek_nama_admin($nama) != 0) {
         if(cek_data_admin($nama, $pass)){
-          redirect_login_admin($nama);
+          redirect_login_admin($nama, $ceklist);
         }else {
           $error = 'data ada yang salah';
         }
@@ -92,7 +112,7 @@
         <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
         <div class="checkbox mb-3">
           <label>
-            <input type="checkbox" value="remember-me"> Remember me
+            <input type="checkbox" value="remember-me" name="remember"> Remember me
           </label>
         </div>
         <button class="btn btn-lg btn-success btn-block" name="submit" type="submit">Sign in</button>

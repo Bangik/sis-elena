@@ -77,18 +77,39 @@ function escape($data){
   return mysqli_real_escape_string($link, $data);
 }
 
-function redirect_login($nama){
-    $_SESSION['user'] = $nama;
-    header('Location: dasboard-siswa.php');
+function redirect_login($nama, $ceklist){
+  global $link;
+  $query = mysqli_query($link, "SELECT id FROM siswa WHERE nis='$nama'");
+  $id = mysqli_fetch_array($query);
+  $_SESSION['user'] = $nama;
+  if ($ceklist == "cek") {
+    setcookie('hashenc', hash('sha256', $nama), time() + 604800);
+    setcookie('00keys', $id['id'], time() + 604800);
+  }
+  header('Location: dasboard-siswa.php');
 }
-function redirect_login_guru($nama){
-    $_SESSION['user_guru'] = $nama;
-    header('Location: dasboard-guru.php');
+function redirect_login_guru($nama, $ceklist){
+  global $link;
+  $query = mysqli_query($link, "SELECT id FROM guru WHERE nip='$nama'");
+  $id = mysqli_fetch_array($query);
+  $_SESSION['user_guru'] = $nama;
+  if ($ceklist == "cek") {
+    setcookie('hashenc', hash('sha256', $nama), time() + 604800);
+    setcookie('00keys', $id['id'], time() + 604800);
+  }
+  header('Location: dasboard-guru.php');
 }
 
-function redirect_login_admin($nama){
-    $_SESSION['user_admin'] = $nama;
-    header('Location: dashboard-admin.php');
+function redirect_login_admin($nama, $ceklist){
+  global $link;
+  $query = mysqli_query($link, "SELECT id FROM admin WHERE username_admin='$nama'");
+  $id = mysqli_fetch_array($query);
+  $_SESSION['user_admin'] = $nama;
+  if ($ceklist == "cek") {
+    setcookie('hashenc', hash('sha256', $nama), time() + 604800);
+    setcookie('00keys', $id['id'], time() + 604800);
+  }
+  header('Location: dashboard-admin.php');
 }
 
 function flash_delete($name){
