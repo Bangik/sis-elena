@@ -25,7 +25,7 @@
               <?php
                 if ($tampilMateri['nama_presensi'] != "") {
                   echo "<div class='d-flex justify-content-between'>
-                      <a href='view-presensi.php?id= " . $tampilMateri['kode_aktivitas'] . "' class='card-text text-color-a' ><p> ". $tampilMateri['nama_presensi'] ."</p></a>
+                      <a href='view-presensi.php?id=" . $tampilMateri['kode_aktivitas'] . "' class='card-text text-color-a' ><p> ". $tampilMateri['nama_presensi'] ."</p></a>
                       <form action='completes.php' method='post' class='float-right' id='forms'>
                         <input type='hidden' name='idform' value=' ". $tampilMateri['kode_aktivitas'] ."'>
                         <input type='hidden' name='nis' value='".$nis."'>
