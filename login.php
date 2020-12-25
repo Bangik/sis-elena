@@ -8,16 +8,31 @@
     $idsha = $_COOKIE['00keys'];
     $query = mysqli_query($link, "SELECT nis FROM siswa WHERE id='$idsha'");
     $nis = mysqli_fetch_array($query);
+    if ($nis === NULL) {
+      $niss = NULL;
+    }else {
+      $niss = $nis['nis'];
+    }
     $query2 = mysqli_query($link, "SELECT nip FROM guru WHERE id='$idsha'");
     $nip = mysqli_fetch_array($query2);
+    if ($nip === NULL) {
+      $nips = NULL;
+    }else {
+      $nips = $nip['nip'];
+    }
     $query3 = mysqli_query($link, "SELECT username_admin FROM admin WHERE id='$idsha'");
     $nia = mysqli_fetch_array($query3);
-    if ($idUser === hash('sha256', $nis['nis'])) {
-      $_SESSION['user'] = $nis['nis'];
-    }elseif ($idUser === hash('sha256', $nip['nip'])) {
-      $_SESSION['user_guru'] = $nip['nip'];
-    }elseif ($idUser === hash('sha256', $nia['username_admin'])) {
-      $_SESSION['user_admin'] = $nia['username_admin'];
+    if ($nia === NULL) {
+      $nias = NULL;
+    }else {
+      $nias = $nia['username_admin'];
+    }
+    if ($idUser === hash('sha256', $niss)) {
+      $_SESSION['user'] = $niss;
+    }elseif ($idUser === hash('sha256', $nips)) {
+      $_SESSION['user_guru'] = $nips;
+    }elseif ($idUser === hash('sha256', $nias)) {
+      $_SESSION['user_admin'] = $nias;
     }
   }
 
