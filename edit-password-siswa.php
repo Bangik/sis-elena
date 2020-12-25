@@ -40,8 +40,8 @@
                 <label>Konfirmasi Password Baru</label>
                 <input type="password" name="confirmPassword" class="form-control pass-new-2" placeholder="Konfirmasi Password Baru" required>
               </div>
-              <button type="submit" name="submit" class="btn btn-success">Simpan</button>
-              <a href="dasboard-siswa.php" class="btn btn-success">Batal</a>
+              <button type="submit" name="submit" class="btn btn-success"><i class="fa fa-check"></i> Simpan</button>
+              <a href="dasboard-siswa.php" class="btn btn-danger"><i class="fa fa-times"></i> Batal</a>
             </form>
           </div>
         </div>

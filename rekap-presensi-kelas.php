@@ -28,7 +28,7 @@
         ?>
       </div>
       <div class="mb-4 text-center cardss">
-        <a href="akademik-guru.php" class="btn btn-success" role="button">Kembali</a>
+        <a href="akademik-guru.php" class="btn btn-danger" role="button"><i class="fa fa-sign-out"></i> Kembali</a>
       </div>
     </div>
     <!-- main end-->

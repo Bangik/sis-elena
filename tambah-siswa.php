@@ -40,8 +40,8 @@
         <label>Password</label>
         <input type="password" name="password" class="form-control" placeholder="Masukan Password" required/>
       </div>
-      <button type="submit" name="submit" class="btn btn-success">Simpan</button>
-      <a href="javascript:window.history.go(-1);" name="submit" class="btn btn-danger">Batal</a>
+      <button type="submit" name="submit" class="btn btn-success"><i class="fa fa-check"></i> Simpan</button>
+      <a href="javascript:window.history.go(-1);" name="submit" class="btn btn-danger"><i class="fa fa-times"></i> Batal</a>
     </form>
   </div>
      <!-- main end-->

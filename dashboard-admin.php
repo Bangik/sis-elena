@@ -21,8 +21,8 @@
          <a href="admin-guru.php" class="text-color-a">
            <img src="./asset/img/icon-teach.png" class="card-img-top mx-auto d-block" alt="..." style="width:70%">
            <div class="card-body">
-             <h5 class="card-title"><?php echo $hasil['jumlah']; ?></h5>
-             <h5 class="card-title">DATA GURU</h5>
+             <h5 class="card-title"><?php echo $hasil['jumlah']; ?> Total</h5>
+             <h5 class="card-title">GURU</h5>
            </div>
          </a>
        </div>
@@ -32,8 +32,8 @@
          <a href="admin-pilih-kelas.php?id=1" class="text-color-a">
            <img src="./asset/img/icon-class.png" class="card-img-top mx-auto d-block" alt="..." style="width:70%">
            <div class="card-body">
-             <h5 class="card-title"><?php echo $hasil2['jumlah']; ?></h5>
-             <h5 class="card-title">DATA KELAS X</h5>
+             <h5 class="card-title"><?php echo $hasil2['jumlah']; ?> Total Siswa</h5>
+             <h5 class="card-title">KELAS X</h5>
            </div>
          </a>
        </div>
@@ -43,8 +43,8 @@
          <a href="admin-pilih-kelas.php?id=2" class="text-color-a">
            <img src="./asset/img/icon-class.png" class="card-img-top mx-auto d-block" alt="..." style="width:70%">
            <div class="card-body">
-             <h5 class="card-title"><?php echo $hasil3['jumlah']; ?></h5>
-             <h5 class="card-title">DATA KELAS XI</h5>
+             <h5 class="card-title"><?php echo $hasil3['jumlah']; ?> Total Siswa</h5>
+             <h5 class="card-title">KELAS XI</h5>
            </div>
          </a>
        </div>
@@ -54,8 +54,8 @@
          <a href="admin-pilih-kelas.php?id=3" class="text-color-a">
            <img src="./asset/img/icon-class.png" class="card-img-top mx-auto d-block" alt="..." style="width:70%">
            <div class="card-body">
-             <h5 class="card-title"><?php echo $hasil4['jumlah']; ?></h5>
-             <h5 class="card-title">DATA KELAS XII</h5>
+             <h5 class="card-title"><?php echo $hasil4['jumlah']; ?> Total Siswa</h5>
+             <h5 class="card-title">KELAS XII</h5>
            </div>
          </a>
        </div>

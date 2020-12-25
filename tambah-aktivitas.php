@@ -195,8 +195,8 @@
         <div class="form-group">
           <input type="hidden" name="kelas" value="<?php echo $id_kelas; ?>">
         </div>
-          <button type="submit" class="btn btn-success" name="btnsimpan">Simpan</button>
-          <button type="reset" class="btn btn-danger" name="btnreset">Kosongkan</button>
+          <button type="submit" class="btn btn-success" name="btnsimpan"><i class="fa fa-check"></i> Simpan</button>
+          <button type="reset" class="btn btn-danger" name="btnreset"><i class="fa fa-times"></i> Kosongkan</button>
       </form>
     </div>
     <!-- main end-->

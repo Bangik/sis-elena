@@ -32,7 +32,6 @@
   <div class="row row-cols-1 row-cols-md-1">
     <div class="col mb-4">
       <h2 class="text-center h2" style="display:none;">DAFTAR PRESENSI : <?php echo $nama_presensi['nama_presensi']; ?></h2>
-      <button href="#" type="button" class="btn btn-success mr-4 btn-print btn-print2">Print</a>
     </div>
     <div class="col mb-4">
       <div class="card">
@@ -65,7 +64,7 @@
                   }else {
                     echo "?";
                   } ?></td>
-                  <td class="btn-print2"><a href="#" type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal<?php
+                  <td class="btn-print2"><a href="#" type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal<?php
                   $nis = $tampil_presensi['nis'];
                   echo $nis; ?>">Ubah</button></td>
                 </tr>
@@ -103,6 +102,9 @@
             </table>
         </div>
       </div>
+    </div>
+    <div class="col mb-4">
+      <button href="#" type="button" class="btn btn-primary mr-4 btn-print btn-print2"><i class="fa fa-print"></i> Print</a>
     </div>
   </div>
 </div>

@@ -47,7 +47,7 @@
           <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Tambah Aktivitas Baru</h5>
-                <a href="tambah-aktivitas.php?id=<?php echo $id; ?>" class="btn btn-primary <?php echo $err; ?>" style="<?php echo $err2; ?>">Tambah</a>
+                <a href="tambah-aktivitas.php?id=<?php echo $id; ?>" class="btn btn-primary <?php echo $err; ?>" style="<?php echo $err2; ?>"><i class="fa fa-calendar-plus-o"></i> Tambah</a>
               </div>
           </div>
         </div>

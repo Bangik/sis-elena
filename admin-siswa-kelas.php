@@ -52,9 +52,9 @@ if (isset($_POST['simpan'])) {
                 <td><?php echo $data["alamat"];   ?></td>
                 <td><?php echo $data["email"];   ?></td>
                 <td class="btn-print2">
-                  <a href="#" type="button" class="btn btn-success " data-toggle="modal" data-target="#myModal<?php echo $data['nis'];?>">Edit</a>
+                  <a href="#" type="button" class="btn btn-warning " data-toggle="modal" data-target="#myModal<?php echo $data['nis'];?>"><i class="fa fa-user-o"></i> Edit</a>
                 </td>
-                <td class="btn-print2"><a href="delete-siswa.php?id=<?php echo $data['nis']; ?>&idm=<?php echo $kode_kelas; ?>&idk=<?php echo $idk; ?>" class="btn btn-danger" role="button" onclick="return confirm('apakah anda ingin menghapus data ini?')">Hapus</a></td>
+                <td class="btn-print2"><a href="delete-siswa.php?id=<?php echo $data['nis']; ?>&idm=<?php echo $kode_kelas; ?>&idk=<?php echo $idk; ?>" class="btn btn-danger" role="button" onclick="return confirm('apakah anda ingin menghapus data ini?')"><i class="fa fa-user-times"></i> Hapus</a></td>
               </tr>
               <!-- The Modal -->
                 <div class="container">
@@ -127,11 +127,11 @@ if (isset($_POST['simpan'])) {
       </div>
     </div>
   </div>
-  <a href="tambah-siswa.php?id=<?php echo $kode_kelas; ?>&idk=<?php echo $idk; ?>" class="btn btn-success mr-4 mt-4 btn-print2" role="button">Tambah Data</a>
-  <a href="import-siswa.php?id=<?php echo $kode_kelas; ?>&idk=<?php echo $idk; ?>" class="btn mr-4 mt-4 btn-success btn-print2" role="button">Import Data</a>
-  <a href="export-siswa.php?id=<?php echo $kode_kelas; ?>&idk=<?php echo $idk; ?>" class="btn mr-4 mt-4 btn-success btn-print2">Export Excel</a>
-  <a href="#" type="button" class="btn btn-success mr-4 mt-4 btn-print btn-print2">Print</a>
-  <a href="admin-pilih-kelas.php?id=<?php echo $idk; ?>" class="btn btn-success mr-4 mt-4 btn-print2" role="button">Kembali</a>
+  <a href="tambah-siswa.php?id=<?php echo $kode_kelas; ?>&idk=<?php echo $idk; ?>" class="btn btn-primary mr-4 mt-4 btn-print2" role="button"><i class="fa fa-user-plus"></i> Tambah Data</a>
+  <a href="import-siswa.php?id=<?php echo $kode_kelas; ?>&idk=<?php echo $idk; ?>" class="btn mr-4 mt-4 btn-primary btn-print2" role="button"><i class="fa fa-users"></i> Import Data</a>
+  <a href="export-siswa.php?id=<?php echo $kode_kelas; ?>&idk=<?php echo $idk; ?>" class="btn mr-4 mt-4 btn-primary btn-print2"><i class="fa fa-file-excel-o"></i> Export Excel</a>
+  <a href="#" type="button" class="btn btn-primary mr-4 mt-4 btn-print btn-print2"><i class="fa fa-print"></i> Print</a>
+  <a href="admin-pilih-kelas.php?id=<?php echo $idk; ?>" class="btn btn-danger mr-4 mt-4 btn-print2" role="button"><i class="fa fa-sign-out"></i> Kembali</a>
 </div>
 <script type="text/javascript">
   $(document).ready(function(){

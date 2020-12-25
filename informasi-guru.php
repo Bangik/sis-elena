@@ -17,10 +17,6 @@
           </div>
         </div>
       </div>
-      <div class="mb-4 text-center">
-        <a href="akademik-guru.php" class="btn btn-success" role="button">Kembali</a>
-      </div>
-    </div>
     <!-- main end-->
 
 <?php

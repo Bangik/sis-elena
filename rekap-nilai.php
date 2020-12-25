@@ -60,9 +60,9 @@
         <div class="col mb-4">
           <form action="" method="post">
             <div class="form-row">
-              <a href="export-rekap-nilai.php?id=<?php echo $id_kelas;?>&idm=<?php echo $kode_guru; ?>" type="button" name="btn_export" class="btn btn-success mr-4 btn-print2">Export Excel</a>
-              <a href="#" type="button" class="btn btn-success mr-4 btn-print btn-print2">Print</a>
-              <a href="rekap-nilai-kelas.php" class="btn btn-success" role="button">Kembali</a>
+              <a href="export-rekap-nilai.php?id=<?php echo $id_kelas;?>&idm=<?php echo $kode_guru; ?>" type="button" name="btn_export" class="btn btn-primary mr-4 btn-print2"><i class="fa fa-file-excel-o"></i> Export Excel</a>
+              <a href="#" type="button" class="btn btn-primary mr-4 btn-print btn-print2"><i class="fa fa-print"></i> Print</a>
+              <a href="rekap-nilai-kelas.php" class="btn btn-danger" role="button"><i class="fa fa-sign-out"></i> Kembali</a>
             </div>
           </form>
         </div>

@@ -49,7 +49,7 @@
                     <td><?php echo $data["deskripsi"];   ?></td>
                     <td><?php echo $data["tujuan"];   ?></td>
                     <td>
-                      <a href="#" type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal<?php echo $data['id']; ?>">Ubah</a>
+                      <a href="#" type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal<?php echo $data['id']; ?>">Ubah</a>
                     </td>
                     <td><a href="delete-informasi.php?id=<?php echo $data['id']; ?>" class="btn btn-danger" role="button" onclick="return confirm('apakah anda ingin menghapus data ini?')">Hapus</a></td>
                   </tr>
@@ -99,8 +99,8 @@
         </div>
       </div>
       <div class="mb-4">
-        <a href="#" class="btn mr-4 btn-success" role="button" data-toggle="modal" data-target="#myModal">Tambah Informasi</a>
-        <a href="akademik-admin.php" class="btn btn-success" role="button">Kembali</a>
+        <a href="#" class="btn mr-4 btn-primary" role="button" data-toggle="modal" data-target="#myModal"><i class="fa fa-calendar-plus-o"></i> Tambah Informasi</a>
+        <a href="akademik-admin.php" class="btn btn-danger" role="button"><i class="fa fa-sign-out"></i> Kembali</a>
       </div>
     </div>
     <!-- The Modal -->

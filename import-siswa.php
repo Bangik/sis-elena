@@ -43,7 +43,7 @@
         <div class="card-body">
           <h5 class="card-title">Langkah 1</h5>
           <p class="card-text">Gunakan file template excel yang kami sediakan.</p>
-          <a href="download.php?file=TEMPLATES-SISWA.xls" class="btn btn-success mb-3">Download</a>
+          <a href="download.php?file=TEMPLATES-SISWA.xls" class="btn btn-primary mb-3"><i class="fa fa-download"></i> Download</a>
           <h5 class="card-title">Langkah 2</h5>
           <ul>
             <li>Gunakan file tersebut sebagai template untuk daftar produk yang akan di upload.</li>
@@ -59,7 +59,7 @@
           <p class="card-text">Pilih template excel yang sudah diisi dan disimpan dengan mengklik tombol dibawah ini.</p>
           <form class="form" action="" method="post" enctype="multipart/form-data">
               <input type="file" name="files">
-              <button type="submit" name="button" class="btn btn-success">Upload</button>
+              <button type="submit" name="button" class="btn btn-primary"><i class="fa fa-upload"></i> Upload</button>
           </form>
         </div>
       </div>

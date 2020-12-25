@@ -94,8 +94,8 @@
         </div>
       </div>
       <div class="mb-4">
-        <a href="#" class="btn mr-4 btn-success" role="button" data-toggle="modal" data-target="#myModal">Tambah Kelas</a>
-        <a href="akademik-admin.php" class="btn btn-success" role="button">Kembali</a>
+        <a href="#" class="btn mr-4 btn-primary" role="button" data-toggle="modal" data-target="#myModal"><i class="fa fa-users"></i> Tambah Kelas</a>
+        <a href="akademik-admin.php" class="btn btn-danger" role="button"><i class="fa fa-times"></i>Kembali</a>
       </div>
     </div>
     <!-- The Modal -->

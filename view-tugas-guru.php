@@ -29,13 +29,6 @@
       <div class="text-center h2" style="display:none;">
         <h2>DAFTAR NILAI TUGAS : <?php echo $nama_tugas['nama_tugas']; ?></h2>
       </div>
-      <form action="" method="post">
-        <div class="form-row">
-          <a href="export-tugas.php?id=<?php echo $kode_aktivitas;?>&idm=<?php echo $idm; ?>&idg=<?php echo $kodeGuru; ?>" type="button" name="btn_export" class="btn btn-success mr-4 btn-print2">Export Excel</a>
-          <a href="export-zip.php?id=<?php echo $kode_aktivitas;?>&idm=<?php echo $idm; ?>&idg=<?php echo $kodeGuru; ?>" type="button" name="btn_export" class="btn btn-success mr-4 btn-print2">Download Semua File Siswa</a>
-          <a href="#" type="button" class="btn btn-success mr-4 btn-print btn-print2">Print</a>
-        </div>
-      </form>
     </div>
     <div class="col mb-4">
       <div class="card">
@@ -64,7 +57,7 @@
                   <td><?php echo date('d M y', strtotime($tampil_tugas['tanggal'])); ?></td>
                   <td><a href="download.php?file=<?php echo $tampil_tugas['file']; ?>"><?php echo $tampil_tugas['file']; ?></a></td>
                   <td><?php echo $tampil_tugas['nilai'];?></td>
-                  <td class="btn-print2"><a href="#" type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal<?php
+                  <td class="btn-print2"><a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal<?php
                   $nis = $tampil_tugas['nis'];
                   echo $nis; ?>">Nilai</a></td>
                 </tr>
@@ -101,6 +94,17 @@
               </tbody>
             </table>
         </div>
+      </div>
+    </div>
+    <div class="col mb-4">
+      <div class="text-center h2">
+        <form action="" method="post">
+          <div class="form-row">
+            <a href="export-tugas.php?id=<?php echo $kode_aktivitas;?>&idm=<?php echo $idm; ?>&idg=<?php echo $kodeGuru; ?>" type="button" name="btn_export" class="btn btn-primary mr-4 btn-print2"><i class="fa fa-file-excel-o"></i> Export Excel</a>
+            <a href="export-zip.php?id=<?php echo $kode_aktivitas;?>&idm=<?php echo $idm; ?>&idg=<?php echo $kodeGuru; ?>" type="button" name="btn_export" class="btn btn-primary mr-4 btn-print2"><i class="fa fa-download"></i> Download Semua File Siswa</a>
+            <a href="#" type="button" class="btn btn-primary mr-4 btn-print btn-print2"><i class="fa fa-print"></i> Print</a>
+          </div>
+        </form>
       </div>
     </div>
   </div>

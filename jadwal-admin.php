@@ -55,19 +55,18 @@
               </select>
             </div>
               <input type="file" name="files">
-              <button type="submit" name="btn-siswa" class="btn btn-success">Upload</button>
+              <button type="submit" name="btn-siswa" class="btn btn-primary"><i class="fa fa-upload"></i> Upload</button>
           </form>
           <h5 class="card-title mt-4">Upload untuk Guru</h5>
           <form class="form " action="" method="post" enctype="multipart/form-data">
             <input type="file" name="files">
-            <button type="submit" name="btn-guru" class="btn btn-success">Upload</button>
+            <button type="submit" name="btn-guru" class="btn btn-primary"><i class="fa fa-upload"></i> Upload</button>
           </form>
         </div>
 
       </div>
     </div>
   </div>
-  <a href="akademik-admin.php" class="btn mt-4 btn-success" role="button">Kembali</a>
 </div>
 
 <?php
