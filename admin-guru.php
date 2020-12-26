@@ -74,7 +74,7 @@
                           </div>
                           <div class="form-group">
                             <label>Email</label>
-                            <input type="text" name="email" class="form-control" placeholder="Input email" value="<?php echo $data['email']; ?>">
+                            <input type="email" name="email" class="form-control" placeholder="Input email" value="<?php echo $data['email']; ?>">
                           </div>
                           <div class="form-group">
                             <label>Alamat</label>
@@ -121,7 +121,7 @@
     <a href="import-guru.php" class="btn mr-4 mt-4 btn-primary btn-print2" role="button"><i class="fa fa-users"></i> Import Data</a>
     <a href="export-guru.php" class="btn mr-4 mt-4 btn-primary btn-print2"><i class="fa fa-file-excel-o"></i> Export Excel</a>
     <a href="#" type="button" class="btn mt-4 btn-primary mr-4 btn-print btn-print2"><i class="fa fa-print"></i> Print</a>
-    <a href="dashboard-admin.php" class="btn mr-4 mt-4 btn-danger btn-print2" role="button"><i class="fa fa-times"></i> Kembali</a>
+    <a href="dashboard-admin.php" class="btn mr-4 mt-4 btn-danger btn-print2" role="button"><i class="fa fa-sign-out"></i> Kembali</a>
   </div>
   <script type="text/javascript">
     $(document).ready(function(){

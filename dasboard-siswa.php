@@ -11,6 +11,7 @@
     <div class="container">
       <div class="row row-cols-1 row-cols-md-4 text-center">
         <?php
+          $no = 1;
           while ($dataMapel = mysqli_fetch_array($tampilMapel)) :
             $queryhitung = mysqli_query($link, "SELECT COUNT(checkbox) AS total FROM presensi WHERE kode_mapel='$dataMapel[kode_mapel]' AND nis='$nis'");
             $data_hitung = mysqli_fetch_array($queryhitung);
@@ -36,7 +37,7 @@
         <div class="col mb-4 cardss">
           <div class="card">
             <a href="view-mapel.php?id=<?php echo $dataMapel['kode_mapel'];?>" class="text-color-a">
-              <img src="./asset/img/matematika-logo.jpg" class="card-img-top mx-auto d-block" alt="..." style="width:70%">
+              <img src="./asset/img/img<?php echo $no++; ?>.svg" class="card-img-top mx-auto d-block" alt="..." style="width:100%; height:100%;">
               <div class="card-body">
                 <h5 class="card-title"><?php echo $dataMapel['nama_mapel'];?></h5>
                 <div class="progress">
@@ -47,7 +48,11 @@
           </div>
         </div>
         <?php
+        if ($no == 11) {
+          $no = 1;
+        }
           endwhile;
+
         ?>
       </div>
     </div>

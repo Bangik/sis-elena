@@ -8,7 +8,7 @@
         <div class="col mb-4 cardss">
           <div class="card">
             <a href="Jadwal-mengajar.php" class="text-color-a">
-              <img src="./asset/img/matematika-logo.jpg" class="card-img-top mx-auto d-block" alt="..." style="width:70%">
+              <img src="./asset/img/img10.svg" class="card-img-top mx-auto d-block" alt="..." style="width:100%; height:100%;">
               <div class="card-body">
                 <h5 class="card-title">Jadwal Mengajar</h5>
               </div>
@@ -18,7 +18,7 @@
         <div class="col mb-4 cardss">
           <div class="card">
             <a href="informasi-guru.php" class="text-color-a">
-              <img src="./asset/img/matematika-logo.jpg" class="card-img-top mx-auto d-block" alt="..." style="width:70%">
+              <img src="./asset/img/img11.svg" class="card-img-top mx-auto d-block" alt="..." style="width:100%; height:100%;">
               <div class="card-body">
                 <h5 class="card-title">Informasi</h5>
               </div>
@@ -28,7 +28,7 @@
         <div class="col mb-4 cardss">
           <div class="card">
             <a href="rekap-presensi-kelas.php" class="text-color-a">
-              <img src="./asset/img/matematika-logo.jpg" class="card-img-top mx-auto d-block" alt="..." style="width:70%">
+              <img src="./asset/img/img6.svg" class="card-img-top mx-auto d-block" alt="..." style="width:100%; height:100%;">
               <div class="card-body">
                 <h5 class="card-title">Rekap Presensi</h5>
               </div>
@@ -38,7 +38,7 @@
         <div class="col mb-4 cardss">
           <div class="card">
             <a href="rekap-nilai-kelas.php" class="text-color-a">
-              <img src="./asset/img/matematika-logo.jpg" class="card-img-top mx-auto d-block" alt="..." style="width:70%">
+              <img src="./asset/img/img4.svg" class="card-img-top mx-auto d-block" alt="..." style="width:100%; height:100%;">
               <div class="card-body">
                 <h5 class="card-title">Rekap Nilai</h5>
               </div>
