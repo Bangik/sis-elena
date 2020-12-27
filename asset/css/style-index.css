@@ -1,8 +1,7 @@
 html, body {
   background-color: #F3F3F3;
-  height: 100%;
-  margin: 0px;
   padding: 0px;
+  overflow-x: hidden;
 }
 .navbar{
   margin-bottom: 125px;
