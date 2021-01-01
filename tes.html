@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <style media="screen">
+      *{
+        box-sizing: border-box;
+      }
+      :root{
+        --main-red-color: #e06262;
+      }
+      .main-red-color{
+        color: var(--main-red-color);
+      }
+      html{
+        font-size: 10px;
+      }
+      body{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        background-color: #2d2d2d;
+        height: 100vh;
+      }
+      body, html{
+        margin: 0;
+        padding: 0;
+      }
+      .container{
+        width: 600px;
+        height: 600px;
+        background-color: #f2eecb;
+        border-radius: 4px;
+        padding: 32px;
+      }
+      .frame{
+        border: 1px solid #484848;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+      .header{
+        display: flex;
+        align-items: flex-start;
+      }
+      .header-title{
+        flex: 1;
+        font-size: 3.6rem;
+        text-transform: lowercase;
+      }
+      .header-btn{
+        font-size: 1.8rem;
+        padding: 24px;
+        background: unset;
+        border: unset;
+        outline: unset;
+      }
+      .add{
+        padding: 16px;
+      }
+      .add-form{
+        display: flex;
+        align-items: center;
+
+      }
+      .add-input{
+        background: unset;
+        border: unset;
+        padding: 0 64px;
+        flex: 1;
+        outline: unset;
+        border-bottom: 1px solid var(--main-red-color);
+        font-size: 16px;
+        text-transform: lowercase;
+      }
+      .add-btn{
+        font-size: 1.8rem;
+        padding: 10px;
+        padding-right: unset;
+        cursor: pointer;
+        background: unset;
+        border: unset;
+        outline: unset;
+      }
+      .todos{
+        display: flex;
+        flex-direction: column;
+      }
+      .todo{
+        position: relative;
+        flex: 1 0 auto;
+        min-height: 34px;
+        margin: 16 0 0;
+        font-size: 24px;
+        border-bottom: 1px solid  var(--main-red-color);
+      }
+      .todo-text{
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+      }
+    </style>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="frame">
+        <section class="header">
+          <button name="button" class="header-btn">Add</button>
+          <h1 class="header-title">Todo List</h1>
+          <button name="button" class="header-btn main-red-color">Clear</button>
+        </section>
+        <section class="add">
+          <form class="add-form">
+            <input type="text" name="" value="" class="add-input">
+            <button type="button" name="button" class="add-btn">Add</button>
+          </form>
+        </section>
+        <section class="todos">
+          <div class="todo">
+            <span class="todo-text">todododo</span>
+          </div>
+          <div class="todo">
+            <span class="todo-text">todododo</span>
+          </div>
+          <div class="todo">
+            <span class="todo-text">todododo</span>
+          </div>
+          <div class="todo">
+            <span class="todo-text">todododo</span>
+          </div>
+          <div class="todo">
+            <span class="todo-text">todododo</span>
+          </div>
+          <div class="todo">
+            <span class="todo-text">todododo</span>
+          </div>
+          <div class="todo">
+            <span class="todo-text">todododo</span>
+          </div>
+          <div class="todo">
+            <span class="todo-text">todododo</span>
+          </div>
+          <div class="todo">
+            <span class="todo-text">todododo</span>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

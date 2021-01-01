@@ -184,15 +184,6 @@
         </div>
 
         <div class="form-group">
-          <input type="checkbox" class="btn-upload">Upload</input>
-          <div class="form-upload form-group" style="display:none;">
-            <label>Upload</label>
-            <input type="text" name="kode_barang" class="form-control" placeholder="Input Judul">
-          </div>
-        </div>
-
-
-        <div class="form-group">
           <input type="hidden" name="kelas" value="<?php echo $id_kelas; ?>">
         </div>
           <button type="submit" class="btn btn-success" name="btnsimpan"><i class="fa fa-check"></i> Simpan</button>

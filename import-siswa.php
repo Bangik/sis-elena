@@ -51,8 +51,8 @@
             <li>Pastikan file excel format .xls</li>
             <li>Perhatikan hal-hal berikut dalam mengisi template excel:</li>
             <ul>
-              <li>Nama kolom dibaris pertama tidak boleh diganti.</li>
-              <li>....</li>
+              <li>Nama kolom langsung di ganti dengan data siswa.</li>
+              <li>Pastikan data siswa berada pada tabel yang sesuai</li>
             </ul>
           </ul>
           <h5 class="card-title">Langkah 3</h5>
