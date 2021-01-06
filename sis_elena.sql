@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 26, 2020 at 04:54 AM
--- Server version: 10.4.16-MariaDB
--- PHP Version: 7.4.12
+-- Generation Time: Jan 05, 2021 at 10:52 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.4.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -108,7 +108,8 @@ CREATE TABLE `jadwal` (
 --
 
 INSERT INTO `jadwal` (`id_jadwal`, `kode_kelas`, `temp_file`, `file`) VALUES
-(8, 'A01', 'C:xamppnew	mpphpEC2D.tmp', 'jadwal/16082637521 (1).png');
+(8, 'A01', 'C:xamppnew	mpphpEC2D.tmp', 'jadwal/16082637521 (1).png'),
+(9, 'A01', 'C:xampp7.4.13	mpphp37C1.tmp', 'jadwal/JAM-page-001.png');
 
 -- --------------------------------------------------------
 
@@ -127,7 +128,8 @@ CREATE TABLE `jadwal_guru` (
 --
 
 INSERT INTO `jadwal_guru` (`id`, `temp_file`, `file`) VALUES
-(1, 'C:xamppnew	mpphpA1D5.tmp', 'jadwal/1 (1).png');
+(1, 'C:xamppnew	mpphpA1D5.tmp', 'jadwal/1 (1).png'),
+(2, 'C:xampp7.4.13	mpphpF693.tmp', 'jadwal/jadwal guru.png');
 
 -- --------------------------------------------------------
 
@@ -212,12 +214,12 @@ CREATE TABLE `materi_mapel` (
 --
 
 INSERT INTO `materi_mapel` (`id`, `kode_mapel`, `judul`, `kode_aktivitas`, `kode_aktivitas2`, `kode_aktivitas3`, `kode_kelas`, `checkbox`) VALUES
-(82, 'PA01', 'asd', NULL, 39, NULL, 'A01', NULL),
-(83, 'PA02', 'BAB 3 KALKULUS', 77, NULL, NULL, 'A01', NULL),
-(84, 'PA02', 'BAB 3 KALKULUS', NULL, 40, NULL, 'A01', NULL),
-(85, 'PA02', 'BAB 3 KALKULUS', 78, 41, NULL, 'A01', NULL),
-(86, 'PA03', 'BAB 3 HIDROGEN', 79, NULL, NULL, 'A01', NULL),
-(87, 'PA10', 'asd', 80, NULL, NULL, 'A02', NULL);
+(82, 'PA01', 'Bab 1 Aljabar', NULL, 39, NULL, 'A01', NULL),
+(83, 'PA02', 'BAB 2 Listrik Statis', 77, NULL, NULL, 'A01', NULL),
+(84, 'PA02', 'Bab 3 Listrik Dinamis', NULL, 40, NULL, 'A01', NULL),
+(85, 'PA02', 'Bab 3 Pesawat Seerhana', 78, 41, NULL, 'A01', NULL),
+(86, 'PA03', 'Bab 3 Asam Basa Garam', 79, NULL, NULL, 'A01', NULL),
+(87, 'PA10', 'Bab 1 Aljabar', 80, NULL, NULL, 'A02', NULL);
 
 -- --------------------------------------------------------
 
@@ -244,7 +246,7 @@ CREATE TABLE `presensi` (
 INSERT INTO `presensi` (`kd_presensi`, `kode_aktivitas`, `kode_mapel`, `nis`, `jam`, `tanggal`, `status`, `catatan`, `checkbox`) VALUES
 (1124, 77, 'PA02', '1112', NULL, NULL, NULL, 0, 'completion-manual-n'),
 (1125, 77, 'PA02', '1222', NULL, NULL, NULL, 0, 'completion-manual-y'),
-(1126, 77, 'PA02', '1234', NULL, NULL, NULL, 0, 'completion-manual-y'),
+(1126, 77, 'PA02', '1234', '10:27:13', '2020-12-28', 'hadir', 1, 'completion-manual-y'),
 (1127, 78, 'PA02', '1112', NULL, NULL, NULL, 0, 'completion-manual-n'),
 (1128, 78, 'PA02', '1222', NULL, NULL, NULL, 0, 'completion-manual-n'),
 (1129, 78, 'PA02', '1234', NULL, NULL, NULL, 0, 'completion-manual-n'),
@@ -275,10 +277,10 @@ CREATE TABLE `presensi2` (
 --
 
 INSERT INTO `presensi2` (`kode_aktivitas`, `nama_presensi`, `kode_mapel`, `tanggal_mulai`, `jam_mulai`, `tanggal_akhir`, `jam_akhir`, `deskripsi`) VALUES
-(77, 'asd', 'PA02', '2020-02-02', '14:21:00', '2020-02-02', '02:12:00', 'ads'),
-(78, 'asd', 'PA02', '2020-12-12', '14:02:00', '2020-02-02', '02:12:00', '2121asd'),
-(79, 'ABSEN BAB 1', 'PA03', '2020-12-21', '02:13:00', '2020-02-12', '02:12:00', 'ADS'),
-(80, 'asd', 'PA10', '2000-12-01', '12:01:00', '2020-02-12', '14:01:00', '2121');
+(77, 'Presensi Hari Ini', 'PA02', '2020-02-02', '14:21:00', '2020-12-28', '14:00:00', 'Presensi'),
+(78, 'Presensi Hari Ini', 'PA02', '2020-12-12', '14:02:00', '2020-02-02', '02:12:00', NULL),
+(79, 'Presensi Hari Ini', 'PA03', '2020-12-21', '02:13:00', '2020-02-12', '02:12:00', NULL),
+(80, 'Presensi Hari Ini', 'PA10', '2000-12-01', '12:01:00', '2020-02-12', '14:01:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -392,9 +394,9 @@ CREATE TABLE `tugas2` (
 --
 
 INSERT INTO `tugas2` (`kode_aktivitas2`, `nama_tugas`, `kode_mapel`, `tanggal_mulai`, `jam_mulai`, `tanggal_akhir`, `jam_akhir`, `deskripsi`, `nama_file`, `file`) VALUES
-(39, '21221', 'PA01', '2020-02-12', '14:00:00', '2020-02-02', '14:02:00', 'asd', 'WhatsApp Image 2020-12-21 at 9.07.23 AM.jpeg', 'C:xamppnew	mpphpEE6C.tmp'),
-(40, '2121', 'PA02', '2020-02-12', '02:12:00', '2020-02-02', '02:12:00', '1ads', '', ''),
-(41, 'asdds', 'PA02', '2020-02-02', '02:12:00', '2020-12-10', '02:12:00', 'asd', '', '');
+(39, 'Tugas Hal 7', 'PA01', '2020-02-12', '14:00:00', '2020-02-02', '14:02:00', 'asd', 'WhatsApp Image 2020-12-21 at 9.07.23 AM.jpeg', 'C:xamppnew	mpphpEE6C.tmp'),
+(40, 'Tugas Hal 8', 'PA02', '2020-12-21', '10:00:00', '2020-12-29', '10:10:00', 'Listrik dinamis Fisika', '', ''),
+(41, 'Tugas Hal 9', 'PA02', '2020-02-02', '02:12:00', '2020-12-10', '02:12:00', 'asd', '', '');
 
 --
 -- Indexes for dumped tables
@@ -531,13 +533,13 @@ ALTER TABLE `informasi`
 -- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `jadwal_guru`
 --
 ALTER TABLE `jadwal_guru`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `materi_mapel`
