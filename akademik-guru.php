@@ -7,7 +7,7 @@
       <div class="row row-cols-1 row-cols-md-4 text-center">
         <div class="col mb-4 cardss">
           <div class="card">
-            <a href="Jadwal-mengajar.php" class="text-color-a">
+            <a href="jadwal-mengajar.php" class="text-color-a">
               <img src="./asset/img/img10.svg" class="card-img-top mx-auto d-block" alt="..." style="width:100%; height:100%;">
               <div class="card-body">
                 <h5 class="card-title">Jadwal Mengajar</h5>

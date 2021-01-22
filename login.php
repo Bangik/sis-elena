@@ -133,7 +133,7 @@
             <input type="checkbox" value="remember-me" name="remember"> Remember me
           </label>
         </div>
-        <button class="btn btn-lg btn-success btn-block" name="submit" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">Sign in</button>
 
       </form>
       <a  href="#" class="text-color-a" data-toggle="modal" data-target="#myModal">Lupa Username / Password ?</a>
