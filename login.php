@@ -120,7 +120,7 @@
     <div class="text-center">
       <form class="form-signin" method="post" action="#">
         <? if($error != ''){ ?>
-            <div id="error">
+            <div id="error" class="text-danger">
               <?= $error; ?>
         </div>
         <? } ?>
