@@ -49,7 +49,7 @@
   </head>
   <body>
     <!-- navbar start -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
       <div class="container">
         <a class="navbar-brand text-white" href="index.html">SIS ELENA</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

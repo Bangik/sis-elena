@@ -109,7 +109,7 @@
   </head>
   <body class="">
     <!-- navbar start -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
       <div class="container">
         <a class="navbar-brand text-white text-a" href="index.html">SISTEM INFORMASI & E-LEARNING SMAN 1 AKABILURU</a>
         <a class="navbar-brand text-white text-b" href="index.html">SIS ELENA SMAN 1 AKABILURU</a>

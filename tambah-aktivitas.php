@@ -148,7 +148,7 @@
           </div>
           <div class="form-presensi form-group" style="display:none;">
             <label>Deskripsi</label>
-            <textarea name="deskripsi_presensi" class="form-control" rows="3"></textarea>
+            <textarea class="form-control" name="deskripsi_presensi" id="editor"></textarea>
           </div>
         </div>
 
@@ -174,7 +174,7 @@
             </div>
             <div class="form-tugas form-group" style="display:none;">
               <label>Deskripsi</label>
-              <textarea name="deskripsi_tugas" class="form-control" rows="3"></textarea>
+              <textarea class="form-control" name="deskripsi_tugas" id="editor2"></textarea>
             </div>
             <div class="form-tugas form-group" style="display:none;">
               <label>Upload File Maks 20 MB <?php echo $err; ?></label>
@@ -215,6 +215,16 @@
         }
       });
     });
+    ClassicEditor
+      .create(document.querySelector( '#editor' ))
+      .catch(error => {
+          console.error( error );
+      });
+    ClassicEditor
+      .create(document.querySelector( '#editor2' ))
+      .catch(error => {
+          console.error( error );
+      });
     </script>
 <?php
   include 'templates/footer.php'

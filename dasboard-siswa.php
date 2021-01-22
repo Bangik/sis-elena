@@ -73,7 +73,7 @@
               $last_week = date("Y-m-d", time() - 604800);
               $future = date("Y-m-d", time()  + 31557600);
 
-              $query_informasi = mysqli_query($link, "SELECT presensi2.nama_presensi, presensi2.tanggal_akhir, presensi2.jam_akhir, tugas2.nama_tugas, tugas2.tanggal_akhir, tugas2.jam_akhir, materi_mapel.kode_aktivitas, materi_mapel.kode_aktivitas2, mapel.nama_mapel, mapel.kode_mapel FROM materi_mapel LEFT JOIN presensi2 ON presensi2.kode_aktivitas = materi_mapel.kode_aktivitas LEFT JOIN tugas2 on tugas2.kode_aktivitas2 = materi_mapel.kode_aktivitas2 LEFT JOIN mapel ON materi_mapel.kode_mapel = mapel.kode_mapel WHERE mapel.kode_kelas = '$kelasUser' AND presensi2.tanggal_akhir BETWEEN '$last_week' AND '$future' or tugas2.tanggal_akhir BETWEEN '$last_week' AND '$future'");
+              $query_informasi = mysqli_query($link, "SELECT presensi2.nama_presensi, presensi2.tanggal_akhir, presensi2.jam_akhir, tugas2.nama_tugas, tugas2.tanggal_akhir, tugas2.jam_akhir, materi_mapel.kode_aktivitas, materi_mapel.kode_aktivitas2, mapel.nama_mapel, mapel.kode_mapel FROM materi_mapel LEFT JOIN presensi2 ON presensi2.kode_aktivitas = materi_mapel.kode_aktivitas LEFT JOIN tugas2 on tugas2.kode_aktivitas2 = materi_mapel.kode_aktivitas2 LEFT JOIN mapel ON materi_mapel.kode_mapel = mapel.kode_mapel WHERE mapel.kode_kelas = '$kelasUser' AND presensi2.tanggal_akhir BETWEEN '$last_week' AND '$future' or tugas2.tanggal_akhir BETWEEN '$last_week' AND '$future' ORDER BY presensi2.tanggal_akhir DESC, tugas2.tanggal_akhir DESC");
 
               while ($row_informasi = mysqli_fetch_row($query_informasi)) {
                 $querychek = mysqli_query($link, "SELECT checkbox FROM presensi WHERE nis ='$nis' AND kode_aktivitas='$row_informasi[6]'");
