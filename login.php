@@ -109,7 +109,7 @@
   </head>
   <body class="">
     <!-- navbar start -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+    <nav class="navbar navbar-expand-lg navbar-light bg-success">
       <div class="container">
         <a class="navbar-brand text-white text-a" href="index.html">SISTEM INFORMASI & E-LEARNING SMAN 1 AKABILURU</a>
         <a class="navbar-brand text-white text-b" href="index.html">SIS ELENA SMAN 1 AKABILURU</a>
@@ -120,7 +120,7 @@
     <div class="text-center">
       <form class="form-signin" method="post" action="#">
         <? if($error != ''){ ?>
-            <div id="error" class="text-danger">
+            <div id="error" class="text-white bg-danger">
               <?= $error; ?>
         </div>
         <? } ?>
@@ -133,7 +133,7 @@
             <input type="checkbox" value="remember-me" name="remember"> Remember me
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-success btn-block" name="submit" type="submit">Sign in</button>
 
       </form>
       <a  href="#" class="text-color-a" data-toggle="modal" data-target="#myModal">Lupa Username / Password ?</a>
