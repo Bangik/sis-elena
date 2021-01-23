@@ -105,7 +105,7 @@
 
 
       echo "<script>
-              alert('Data BERHASIL disimpan " .$kode_aktivitas1.  "');
+              alert('Aktivitas BERHASIL disimpan');
               document.location='view-kelas.php?id=" . $_POST['kelas'] ."';
             </script>";
     }else {
