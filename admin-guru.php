@@ -8,7 +8,7 @@
     $password = $_POST['password_guru'];
     $mapel = $_POST['kode_mapel'];
     //$kode_aktivitas2 = $_POST['aktivitas'];
-    $querynya = mysqli_query($link, "UPDATE guru SET nip='$_POST[nip2]', nama='$nama', email='$email', alamat='$alamat', password_guru='$password', kode_mapel='$mapel' WHERE nip='$nip' ORDER BY nip ASC");
+    $querynya = mysqli_query($link, "UPDATE guru SET nip='$_POST[nip2]', nama='$nama', email='$email', alamat='$alamat', password_guru='$password', kode_mapel='$mapel' WHERE nip='$nip'");
   }
 ?>
   <div class="container">
@@ -34,7 +34,7 @@
               </thead>
               <tbody>
                 <?php
-                $hasil=mysqli_query($link, "SELECT guru.nip, guru.nama, guru.password_guru, guru.alamat, guru.email, mapel.nama_mapel FROM guru LEFT JOIN mapel ON guru.kode_mapel = mapel.kode_mapel order by nip desc");
+                $hasil=mysqli_query($link, "SELECT guru.nip, guru.nama, guru.password_guru, guru.alamat, guru.email, mapel.nama_mapel FROM guru LEFT JOIN mapel ON guru.kode_mapel = mapel.kode_mapel order by nip asc");
                 $no=1;
                 while ($data = mysqli_fetch_array($hasil)) {
                 ?>

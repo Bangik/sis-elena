@@ -2,7 +2,6 @@
   include 'templates/header-admin.php';
 
   if (isset($_POST['button'])) {
-    if(isset($_POST['files'])){
       require('spreadsheet-reader-master/php-excel-reader/excel_reader2.php');
       require('spreadsheet-reader-master/SpreadsheetReader.php');
 
@@ -23,12 +22,6 @@
       }else{
         echo mysqli_error($link);
       }
-    }else{
-      echo "<script>
-              alert('Anda Belum Memilih File untuk di Upload');
-            </script>";
-    }
-
  }
 
 ?>
